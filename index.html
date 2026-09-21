@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Белорусская Федерация Панкратиона</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -116,7 +117,6 @@
             opacity: 1;
         }
 
-        /* Content z-index to stay above glow */
         .bento-content {
             position: relative;
             z-index: 3;
@@ -147,7 +147,6 @@
             transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         
-        /* Класс, который добавляется через JS при скролле */
         .stagger-enter.is-visible {
             opacity: 1;
             transform: translateY(0);
@@ -159,7 +158,7 @@
         }
         .marquee-container {
             display: flex;
-            width: 200%; /* Удвоенная ширина для бесшовного лупа */
+            width: 200%;
             animation: marquee 30s linear infinite;
         }
         .marquee-container:hover {
@@ -174,59 +173,59 @@
             <div class="w-10 h-10 rounded bg-bpf-dark border border-bpf-gold/30 flex items-center justify-center">
                 <span class="font-heading text-bpf-gold text-xl font-bold">БФП</span>
             </div>
-            <span class="font-heading tracking-wider text-xl hidden sm:block">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
+            <span class="font-heading tracking-wider text-xl hidden sm:block" data-i18n="nav-title">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
         </div>
         <div class="flex gap-4">
-            <button class="text-sm font-semibold hover:text-bpf-gold transition-colors duration-200">RU</button>
-            <button class="text-sm text-bpf-muted hover:text-white transition-colors duration-200">EN</button>
+            <button id="btn-lang-ru" class="text-sm font-semibold text-bpf-gold transition-colors duration-200">RU</button>
+            <button id="btn-lang-en" class="text-sm font-semibold text-bpf-muted hover:text-white transition-colors duration-200">EN</button>
         </div>
     </nav>
 
     <main class="px-3 sm:px-6 max-w-[1400px] mx-auto">
-        
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[clamp(0.5rem,2vw,1rem)] auto-rows-[minmax(clamp(180px,25vh,300px),auto)]">
             
+            <!-- Hero Card -->
             <div class="bento-card stagger-enter col-span-2 md:col-span-2 lg:col-span-3 md:row-span-2 group">
-                <!-- Background Image -->
                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599552375245-ba37fdbbf93a?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                 
                 <div class="bento-content p-[clamp(1rem,4vw,3rem)] justify-end">
                     <div class="inline-flex items-center gap-2 mb-[clamp(0.5rem,2vw,1rem)] bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 w-max">
                         <span class="w-2 h-2 rounded-full bg-bpf-gold animate-pulse"></span>
-                        <span class="text-[clamp(0.55rem,1.5vw,0.75rem)] font-bold tracking-widest uppercase text-white/90">Официальная организация</span>
+                        <span class="text-[clamp(0.55rem,1.5vw,0.75rem)] font-bold tracking-widest uppercase text-white/90" data-i18n="badge-official">Официальная организация</span>
                     </div>
-                    <h1 class="text-[clamp(2rem,6vw+0.5rem,4.5rem)] font-heading font-bold text-white leading-[1.1] mb-[clamp(0.75rem,2vw,1rem)]">
+                    <h1 class="text-[clamp(2rem,6vw+0.5rem,4.5rem)] font-heading font-bold text-white leading-[1.1] mb-[clamp(0.75rem,2vw,1rem)]" data-i18n="hero-title">
                         БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200">ПАНКРАТИОНА</span>
                     </h1>
-                    <p class="text-[clamp(0.875rem,2vw,1.25rem)] text-bpf-text max-w-2xl mb-[clamp(1rem,3vw,2rem)]">
+                    <p class="text-[clamp(0.875rem,2vw,1.25rem)] text-bpf-text max-w-2xl mb-[clamp(1rem,3vw,2rem)]" data-i18n="hero-desc">
                         Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.
                     </p>
                     <div class="flex flex-wrap gap-[clamp(0.5rem,2vw,1rem)]">
-                        <button class="bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-xl transition-all duration-300 font-heading text-[clamp(0.8rem,1.5vw,1.125rem)] transform hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                        <button id="btn-join" class="bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-xl transition-all duration-300 font-heading text-[clamp(0.8rem,1.5vw,1.125rem)] transform hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)]" data-i18n="btn-join">
                             Вступить
                         </button>
-                        <button class="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold uppercase tracking-wider px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-xl transition-all duration-300 font-heading text-[clamp(0.8rem,1.5vw,1.125rem)]">
+                        <button id="btn-rules" class="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold uppercase tracking-wider px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-xl transition-all duration-300 font-heading text-[clamp(0.8rem,1.5vw,1.125rem)]" data-i18n="btn-rules">
                             Правила
                         </button>
                     </div>
                 </div>
             </div>
 
+            <!-- Info Card 1 -->
             <div class="bento-card stagger-enter col-span-2 md:col-span-1 lg:col-span-1 row-span-1 md:row-span-2 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
                 <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-col h-full">
-                    <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.5rem,2vw,1rem)] border-b border-white/10 pb-3">Синтез силы</h3>
+                    <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.5rem,2vw,1rem)] border-b border-white/10 pb-3" data-i18n="card1-title">Синтез силы</h3>
                     <div class="flex-grow flex flex-col justify-center gap-[clamp(0.5rem,2vw,1rem)]">
-                        <p class="text-bpf-muted leading-relaxed text-[clamp(0.8rem,1.5vw,1rem)]">
+                        <p class="text-bpf-muted leading-relaxed text-[clamp(0.8rem,1.5vw,1rem)]" data-i18n="card1-p1">
                             Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).
                         </p>
-                        <p class="text-bpf-text leading-relaxed text-[clamp(0.8rem,1.5vw,1rem)] font-medium">
+                        <p class="text-bpf-text leading-relaxed text-[clamp(0.8rem,1.5vw,1rem)] font-medium" data-i18n="card1-p2">
                             Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.
                         </p>
                     </div>
                     <div class="mt-auto pt-4 border-t border-white/10">
-                        <a href="#" class="text-bpf-gold hover:text-bpf-goldHover font-heading uppercase text-[clamp(0.75rem,1.5vw,0.875rem)] tracking-wider flex items-center gap-2 group/link">
-                            Подробнее
+                        <a href="#" id="btn-more" class="text-bpf-gold hover:text-bpf-goldHover font-heading uppercase text-[clamp(0.75rem,1.5vw,0.875rem)] tracking-wider flex items-center gap-2 group/link">
+                            <span data-i18n="btn-more">Подробнее</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
@@ -235,105 +234,110 @@
                 </div>
             </div>
 
+            <!-- Stats Card -->
             <div class="bento-card stagger-enter col-span-2 sm:col-span-1 md:col-span-1 row-span-1">
                 <div class="bento-content p-[clamp(1rem,3vw,1.5rem)] flex flex-col justify-between">
-                    <h3 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-2">Наши масштабы</h3>
+                    <h3 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-2" data-i18n="stats-title">Наши масштабы</h3>
                     <div class="grid grid-cols-2 gap-[clamp(0.5rem,2vw,1rem)] h-full">
                         <div class="flex flex-col justify-center">
                             <span class="font-heading text-[clamp(1.5rem,4vw,2.25rem)] text-bpf-gold leading-none">50+</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1">Клубов в РБ</span>
+                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-clubs">Клубов в РБ</span>
                         </div>
                         <div class="flex flex-col justify-center">
                             <span class="font-heading text-[clamp(1.5rem,4vw,2.25rem)] text-white leading-none">1000+</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1">Атлетов</span>
+                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-athletes">Атлетов</span>
                         </div>
                         <div class="flex flex-col justify-center">
                             <span class="font-heading text-[clamp(1.5rem,4vw,2.25rem)] text-white leading-none">6</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1">Регионов</span>
+                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-regions">Регионов</span>
                         </div>
                         <div class="flex flex-col justify-center">
                             <span class="font-heading text-[clamp(1.25rem,3vw,1.75rem)] text-bpf-gold leading-none">UWW</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1">Признание</span>
+                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-recognition">Признание</span>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tournament Banner -->
             <div class="bento-card stagger-enter col-span-2 lg:col-span-2 row-span-1 bg-[#121212] relative overflow-hidden group">
                 <div class="absolute right-[-10%] top-[-20%] w-[clamp(100px,30vw,256px)] h-[clamp(100px,30vw,256px)] bg-bpf-red/10 rounded-full blur-3xl group-hover:bg-bpf-red/20 transition-colors duration-500"></div>
                 <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
                     <div class="flex-1">
                         <div class="text-bpf-red font-bold text-[clamp(0.55rem,1.5vw,0.75rem)] uppercase tracking-widest mb-2 flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-bpf-red flex-shrink-0"></span> <span class="truncate">Ближайший турнир</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-bpf-red flex-shrink-0"></span> <span class="truncate" data-i18n="tourney-badge">Ближайший турнир</span>
                         </div>
-                        <h3 class="font-heading text-[clamp(1.25rem,3vw,1.875rem)] text-white mb-2 leading-tight">Открытый Чемпионат РБ 2026</h3>
+                        <h3 class="font-heading text-[clamp(1.25rem,3vw,1.875rem)] text-white mb-2 leading-tight" data-i18n="tourney-title">Открытый Чемпионат РБ 2026</h3>
                         <p class="text-bpf-muted text-[clamp(0.75rem,2vw,0.875rem)] flex items-start sm:items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5 sm:mt-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span class="line-clamp-2 sm:line-clamp-1">Минск, РЦОП по единоборствам</span>
+                            <span class="line-clamp-2 sm:line-clamp-1" data-i18n="tourney-loc">Минск, РЦОП по единоборствам</span>
                         </p>
                     </div>
                     <div class="flex-shrink-0 text-center bg-white/5 border border-white/10 rounded-xl p-[clamp(0.75rem,2vw,1rem)] min-w-[clamp(80px,15vw,120px)]">
                         <div class="font-heading text-[clamp(1.75rem,5vw,2.5rem)] text-white leading-none mb-1">15</div>
-                        <div class="font-heading text-bpf-gold tracking-widest uppercase text-[clamp(0.6rem,1.5vw,0.875rem)]">Ноября</div>
+                        <div class="font-heading text-bpf-gold tracking-widest uppercase text-[clamp(0.6rem,1.5vw,0.875rem)]" data-i18n="tourney-month">Ноября</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Board of Directors -->
             <div class="bento-card stagger-enter col-span-2 md:col-span-3 lg:col-span-4 lg:row-span-2">
                 <div class="bento-content p-[clamp(1.25rem,3vw,2rem)]">
                     <div class="flex items-center justify-between mb-[clamp(1rem,3vw,2rem)] border-b border-white/10 pb-4">
-                        <h3 class="font-heading text-[clamp(1.5rem,3vw,1.875rem)] text-white">Руководство Федерации</h3>
-                        <span class="text-bpf-gold text-[clamp(0.65rem,1.5vw,0.875rem)] tracking-widest uppercase font-bold hidden sm:block">Представители</span>
+                        <h3 class="font-heading text-[clamp(1.5rem,3vw,1.875rem)] text-white" data-i18n="board-title">Руководство Федерации</h3>
+                        <span class="text-bpf-gold text-[clamp(0.65rem,1.5vw,0.875rem)] tracking-widest uppercase font-bold hidden sm:block" data-i18n="board-subtitle">Представители</span>
                     </div>
-                    <!-- Резиновая сетка руководителей (2 колонки на мобильных, 4 на больших) -->
+                    
                     <div class="grid grid-cols-2 lg:grid-cols-4 gap-[clamp(0.75rem,2vw,1.5rem)]">
-                        <div class="group/person cursor-pointer">
+                        <div class="group/person cursor-pointer" id="btn-board-1">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
                             </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate">Александр Волков</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate">Президент</p>
+                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-volkov">Александр Волков</h4>
+                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-pres">Президент</p>
                         </div>
-                        <div class="group/person cursor-pointer">
+                        <div class="group/person cursor-pointer" id="btn-board-2">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
                             </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate">Михаил Ковалев</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate">Вице-президент</p>
+                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-kovalev">Михаил Ковалев</h4>
+                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-vp">Вице-президент</p>
                         </div>
-                        <div class="group/person cursor-pointer">
+                        <div class="group/person cursor-pointer" id="btn-board-3">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
                             </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate">Дмитрий Савицкий</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate">Главный тренер</p>
+                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-savitsky">Дмитрий Савицкий</h4>
+                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-coach">Главный тренер</p>
                         </div>
-                        <div class="group/person cursor-pointer">
+                        <div class="group/person cursor-pointer" id="btn-board-4">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
                             </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate">Елена Новикова</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate">Судейская коллегия</p>
+                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-novikova">Елена Новикова</h4>
+                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-judge">Судейская коллегия</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Partners Marquee -->
             <div class="bento-card stagger-enter col-span-2 md:col-span-3 lg:col-span-4 row-span-1 overflow-hidden flex flex-col justify-center py-[clamp(1rem,3vw,2rem)]">
                 <div class="bento-content">
-                    <h3 class="font-heading text-center text-bpf-muted text-[clamp(0.6rem,1.5vw,0.875rem)] uppercase tracking-widest mb-[clamp(1rem,3vw,1.5rem)]">Официальные партнеры</h3>
+                    <h3 class="font-heading text-center text-bpf-muted text-[clamp(0.6rem,1.5vw,0.875rem)] uppercase tracking-widest mb-[clamp(1rem,3vw,1.5rem)]" data-i18n="partners-title">Официальные партнеры</h3>
                     <div class="relative w-full overflow-hidden flex items-center">
                         <div class="absolute left-0 w-[clamp(2rem,10vw,8rem)] h-full bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
                         <div class="absolute right-0 w-[clamp(2rem,10vw,8rem)] h-full bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
                         
                         <div class="marquee-container gap-[clamp(2rem,5vw,4rem)] items-center px-4">
+                            <!-- Loop 1 -->
                             <div class="flex items-center gap-[clamp(2rem,5vw,4rem)] min-w-max">
                                 <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">MINSK ARENA</div>
                                 <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">UWW OFFICIAL</div>
@@ -341,6 +345,7 @@
                                 <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">BELARUSBANK</div>
                                 <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">DYNAMO CLUB</div>
                             </div>
+                            <!-- Loop 2 -->
                             <div class="flex items-center gap-[clamp(2rem,5vw,4rem)] min-w-max">
                                 <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">MINSK ARENA</div>
                                 <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">UWW OFFICIAL</div>
@@ -353,31 +358,33 @@
                 </div>
             </div>
 
-            <div class="bento-card stagger-enter col-span-2 sm:col-span-1 row-span-1 p-0 group overflow-hidden">
+            <!-- Gallery Card -->
+            <div class="bento-card stagger-enter col-span-2 sm:col-span-1 row-span-1 p-0 group overflow-hidden cursor-pointer" id="btn-gallery">
                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center grayscale transition-transform duration-700 group-hover:scale-110"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div class="bento-content p-[clamp(1rem,3vw,1.5rem)] justify-end pointer-events-none">
-                    <h4 class="font-heading text-[clamp(1.125rem,2.5vw,1.25rem)] text-white leading-tight">Галерея</h4>
-                    <p class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted mt-1">Фотоотчеты с соревнований</p>
+                    <h4 class="font-heading text-[clamp(1.125rem,2.5vw,1.25rem)] text-white leading-tight" data-i18n="gallery-title">Галерея</h4>
+                    <p class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted mt-1" data-i18n="gallery-desc">Фотоотчеты с соревнований</p>
                 </div>
             </div>
 
+            <!-- Contacts Card -->
             <div class="bento-card stagger-enter col-span-2 md:col-span-2 row-span-1">
                 <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-col justify-center h-full">
-                    <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.75rem,2vw,1.5rem)]">Связь и ресурсы</h3>
+                    <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.75rem,2vw,1.5rem)]" data-i18n="contact-title">Связь и ресурсы</h3>
                     <div class="flex flex-wrap gap-[clamp(0.5rem,1.5vw,0.75rem)]">
-                        <a href="#" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
+                        <button id="btn-telegram" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
                             Telegram
-                        </a>
-                        <a href="#" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
+                        </button>
+                        <button id="btn-instagram" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
                             Instagram
-                        </a>
-                        <a href="#" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
+                        </button>
+                        <button id="btn-docs" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center" data-i18n="link-docs">
                             Документы
-                        </a>
-                        <a href="mailto:info@pankration.by" class="flex-grow w-full sm:w-auto sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-bpf-gold/10 hover:bg-bpf-gold/20 text-bpf-gold border border-bpf-gold/30 hover:border-bpf-gold text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2">
+                        </button>
+                        <button id="btn-email" class="flex-grow w-full sm:w-auto sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-bpf-gold/10 hover:bg-bpf-gold/20 text-bpf-gold border border-bpf-gold/30 hover:border-bpf-gold text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2">
                             info@pankration.by
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -386,52 +393,170 @@
     </main>
 
     <footer class="mt-12 text-center text-bpf-muted text-sm pb-8 max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div>© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
+        <div data-i18n="footer-copy">© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
         <div class="flex gap-4">
-            <a href="#" class="hover:text-white transition-colors">Политика конфиденциальности</a>
-            <a href="#" class="hover:text-white transition-colors">Контакты</a>
+            <button id="btn-privacy" class="hover:text-white transition-colors" data-i18n="footer-privacy">Политика конфиденциальности</button>
+            <button id="btn-contact-footer" class="hover:text-white transition-colors" data-i18n="footer-contacts">Контакты</button>
         </div>
     </footer>
 
     <script>
+        // Dictionary for i18n
+        const translations = {
+            ru: {
+                "nav-title": "ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ",
+                "badge-official": "Официальная организация",
+                "hero-title": "БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>ПАНКРАТИОНА</span>",
+                "hero-desc": "Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.",
+                "btn-join": "Вступить",
+                "btn-rules": "Правила",
+                "card1-title": "Синтез силы",
+                "card1-p1": "Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).",
+                "card1-p2": "Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.",
+                "btn-more": "Подробнее",
+                "stats-title": "Наши масштабы",
+                "stats-clubs": "Клубов в РБ",
+                "stats-athletes": "Атлетов",
+                "stats-regions": "Регионов",
+                "stats-recognition": "Признание",
+                "tourney-badge": "Ближайший турнир",
+                "tourney-title": "Открытый Чемпионат РБ 2026",
+                "tourney-loc": "Минск, РЦОП по единоборствам",
+                "tourney-month": "Ноября",
+                "board-title": "Руководство Федерации",
+                "board-subtitle": "Представители",
+                "name-volkov": "Александр Волков",
+                "name-kovalev": "Михаил Ковалев",
+                "name-savitsky": "Дмитрий Савицкий",
+                "name-novikova": "Елена Новикова",
+                "role-pres": "Президент",
+                "role-vp": "Вице-президент",
+                "role-coach": "Главный тренер",
+                "role-judge": "Судейская коллегия",
+                "partners-title": "Официальные партнеры",
+                "gallery-title": "Галерея",
+                "gallery-desc": "Фотоотчеты с соревнований",
+                "contact-title": "Связь и ресурсы",
+                "link-docs": "Документы",
+                "footer-copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.",
+                "footer-privacy": "Политика конфиденциальности",
+                "footer-contacts": "Контакты"
+            },
+            en: {
+                "nav-title": "PANKRATION FEDERATION BY",
+                "badge-official": "Official Organization",
+                "hero-title": "BELARUSIAN FEDERATION OF <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>PANKRATION</span>",
+                "hero-desc": "Reviving ancient traditions. Raising modern champions. A universal fighting discipline combining striking and wrestling.",
+                "btn-join": "Join Us",
+                "btn-rules": "Rules",
+                "card1-title": "Synthesis of Power",
+                "card1-p1": "Pankration is the legacy of the Ancient Greek Olympic Games (648 BC). Today, it is the foundation of Mixed Martial Arts (MMA).",
+                "card1-p2": "Our mission is the development of the sport in the Republic of Belarus, training world-class athletes.",
+                "btn-more": "Learn More",
+                "stats-title": "Our Scale",
+                "stats-clubs": "Clubs in BY",
+                "stats-athletes": "Athletes",
+                "stats-regions": "Regions",
+                "stats-recognition": "Recognition",
+                "tourney-badge": "Upcoming Tournament",
+                "tourney-title": "Open Championship BY 2026",
+                "tourney-loc": "Minsk, Olympic Martial Arts Center",
+                "tourney-month": "November",
+                "board-title": "Federation Board",
+                "board-subtitle": "Representatives",
+                "name-volkov": "Alexander Volkov",
+                "name-kovalev": "Mikhail Kovalev",
+                "name-savitsky": "Dmitry Savitsky",
+                "name-novikova": "Elena Novikova",
+                "role-pres": "President",
+                "role-vp": "Vice President",
+                "role-coach": "Head Coach",
+                "role-judge": "Judging Panel",
+                "partners-title": "Official Partners",
+                "gallery-title": "Gallery",
+                "gallery-desc": "Tournament Photo Reports",
+                "contact-title": "Contact & Resources",
+                "link-docs": "Documents",
+                "footer-copy": "© 2026 Belarusian Pankration Federation. All rights reserved.",
+                "footer-privacy": "Privacy Policy",
+                "footer-contacts": "Contacts"
+            }
+        };
+
+        function setLanguage(lang) {
+            // Update Text Elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update UI Button States
+            const btnRu = document.getElementById('btn-lang-ru');
+            const btnEn = document.getElementById('btn-lang-en');
+            
+            const activeClass = "text-sm font-semibold text-bpf-gold transition-colors duration-200";
+            const inactiveClass = "text-sm font-semibold text-bpf-muted hover:text-white transition-colors duration-200";
+
+            if (lang === 'ru') {
+                btnRu.className = activeClass;
+                btnEn.className = inactiveClass;
+            } else {
+                btnEn.className = activeClass;
+                btnRu.className = inactiveClass;
+            }
+            
+            // Re-trigger text clamp recalculations if needed by browser
+            document.body.style.display = 'none';
+            document.body.offsetHeight; // trigger reflow
+            document.body.style.display = '';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. Mouse Tracking Effect for Bento Cards (Glowing Edges)
+            // 1. Language Toggle Event Listeners
+            document.getElementById('btn-lang-ru').addEventListener('click', () => setLanguage('ru'));
+            document.getElementById('btn-lang-en').addEventListener('click', () => setLanguage('en'));
+
+            // 2. Mouse Tracking Effect for Bento Cards
             const cards = document.querySelectorAll('.bento-card');
-            
             cards.forEach(card => {
                 card.addEventListener('mousemove', e => {
                     const rect = card.getBoundingClientRect();
-                    // Calculate relative mouse position
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
-                    // Update custom properties on the card for CSS
                     card.style.setProperty('--mouse-x', `${x}px`);
                     card.style.setProperty('--mouse-y', `${y}px`);
                 });
             });
 
+            // 3. Scroll Reveal Animation
             const animatedElements = document.querySelectorAll('.stagger-enter');
-            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // Добавляем класс, когда элемент появляется в зоне видимости
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Анимируем только один раз
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.1, // Срабатывает, когда видно 10% карточки
+                threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
             });
 
             animatedElements.forEach((el, index) => {
-                // Добавляем небольшую задержку в зависимости от порядка для эффекта каскада
                 el.style.transitionDelay = `${(index % 4) * 100}ms`;
                 observer.observe(el);
             });
+            
+            // Console logs for button placeholders (Ready for your backend/modals)
+            const logAction = (name) => console.log(`Action trigger: ${name} clicked.`);
+            document.getElementById('btn-join').addEventListener('click', () => logAction('Join Federation'));
+            document.getElementById('btn-rules').addEventListener('click', () => logAction('Read Rules'));
+            document.getElementById('btn-more').addEventListener('click', () => logAction('Learn More'));
+            document.getElementById('btn-gallery').addEventListener('click', () => logAction('Open Gallery'));
+            // And so on for other buttons...
         });
     </script>
 </body>
