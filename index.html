@@ -3,743 +3,779 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Белорусская Федерация Панкратиона</title>
+    <title data-i18n="page_title">Белорусская Федерация Панкратиона</title>
     
+    <!-- Подключение шрифтов Oswald и Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        heading: ['Oswald', 'sans-serif'],
-                        body: ['Manrope', 'sans-serif'],
-                    },
-                    colors: {
-                        bpf: {
-                            black: '#0a0a0a',
-                            dark: '#121212',
-                            card: '#1a1a1a',
-                            gold: '#D4AF37',
-                            goldHover: '#f0c742',
-                            red: '#E63946',
-                            text: '#e5e5e5',
-                            muted: '#a3a3a3'
-                        }
-                    },
-                    gridTemplateColumns: {
-                        'bento': 'repeat(4, minmax(0, 1fr))',
-                    },
-                    gridAutoRows: {
-                        'bento': 'minmax(200px, auto)',
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: rgba(26, 26, 26, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --gold: #d4af37;
+            --gold-hover: #f1c94f;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --font-headings: 'Oswald', sans-serif;
+            --font-text: 'Manrope', sans-serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #050505;
-            color: #e5e5e5;
-            font-family: 'Manrope', sans-serif;
-            background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #050505 70%);
-            background-attachment: fixed;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-text);
             min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
+        /* Навигация и переключатель языков */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Bento Card Base Styles */
+        .logo-text {
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-headings);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: #000;
+        }
+
+        /* Bento Grid */
+        .bento-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-grow: 1;
+        }
+
         .bento-card {
-            background: rgba(26, 26, 26, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
             backdrop-filter: blur(10px);
-            border-radius: 1.25rem;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform var(--transition), box-shadow var(--transition);
         }
 
-        .bento-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-            z-index: 10;
-        }
-
-        /* Interactive Mouse Hover Glow Effect */
+        /* Эффект свечения краев за мышью */
         .bento-card::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(
-                800px circle at var(--mouse-x) var(--mouse-y), 
-                rgba(212, 175, 55, 0.08),
-                transparent 40%
-            );
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1;
-        }
-
-        .bento-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             border-radius: inherit;
-            padding: 1px;
-            background: radial-gradient(
-                400px circle at var(--mouse-x) var(--mouse-y), 
-                rgba(212, 175, 55, 0.4),
-                transparent 40%
-            );
+            padding: 2px;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(212, 175, 55, 0.4), transparent 40%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            pointer-events: none;
             opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 2;
+            transition: opacity 0.5s;
+            pointer-events: none;
         }
 
-        .bento-card:hover::before,
-        .bento-card:hover::after {
+        .bento-card:hover::before {
             opacity: 1;
         }
 
-        .bento-content {
-            position: relative;
-            z-index: 3;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
-        }
-
-        /* Initial state for entry animation */
-        .stagger-enter {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        
-        .stagger-enter.is-visible {
+        .bento-card.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Размеры карточек в сетке */
+        .hero-block { grid-column: span 8; grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
+        .action-block { grid-column: span 4; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .leadership-block { grid-column: span 12; }
+        .partners-block { grid-column: span 8; display: flex; flex-direction: column; justify-content: center; }
+        .social-block { grid-column: span 4; display: flex; flex-direction: column; justify-content: center; }
+
+        /* Типографика внутри карточек */
+        h1, h2, h3 {
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+        }
+
+        .hero-block h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero-block h1 span {
+            color: var(--gold);
+        }
+
+        .hero-block p {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: var(--text-muted);
+            max-width: 80%;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-headings);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-hover);
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--gold);
+            margin-top: 15px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Социальные ссылки */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: var(--font-headings);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Руководство (Грид внутри карточки) */
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .leader-card {
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .leader-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .leader-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            filter: grayscale(100%);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .leader-card:hover img {
+            filter: grayscale(0%);
+            border-color: var(--gold);
+        }
+
+        .leader-card h4 {
+            font-family: var(--font-headings);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .leader-card p {
+            font-size: 0.85rem;
+            color: var(--gold);
+        }
+
+        /* Бегущая строка партнеров */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            margin-top: 20px;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            font-family: var(--font-headings);
+            font-size: 2rem;
+            color: rgba(255,255,255,0.2);
+            margin: 0 40px;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .marquee-item:hover {
+            color: var(--gold);
         }
 
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        .marquee-container {
+
+        /* Модальные окна (Попапы) */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
             display: flex;
-            width: 200%;
-            animation: marquee 30s linear infinite;
-        }
-        .marquee-container:hover {
-            animation-play-state: paused;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
 
-        /* Custom Form Input Styles */
-        select option {
-            background-color: #121212;
-            color: #e5e5e5;
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #111;
+            border: 1px solid var(--gold);
+            border-radius: 16px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content.rules-modal, .modal-content.privacy-modal {
+            max-width: 800px;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover { color: var(--gold); }
+
+        /* Форма внутри попапа */
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            color: white;
+            font-family: var(--font-text);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: var(--gold);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .checkbox-group a {
+            color: var(--gold);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Тексты в попапах */
+        .modal-text-content h3 { color: var(--gold); margin: 20px 0 10px; }
+        .modal-text-content p, .modal-text-content ul { margin-bottom: 15px; line-height: 1.6; color: #ccc; }
+        .modal-text-content ul { padding-left: 20px; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 992px) {
+            .bento-container {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .hero-block { text-align: center; }
+            .hero-block p { max-width: 100%; margin: 0 auto; }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-bpf-gold selection:text-black pb-12">
+<body>
 
-    <nav class="w-full px-6 py-8 flex justify-between items-center max-w-[1400px] mx-auto">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded bg-bpf-dark border border-bpf-gold/30 flex items-center justify-center">
-                <span class="font-heading text-bpf-gold text-xl font-bold">БФП</span>
-            </div>
-            <span class="font-heading tracking-wider text-xl hidden sm:block" data-i18n="nav-title">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
+    <header>
+        <div class="logo-text">BPF</div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
         </div>
-        <div class="flex gap-4 z-10 relative">
-            <button id="btn-lang-ru" class="text-sm font-semibold text-bpf-gold transition-colors duration-200">RU</button>
-            <button id="btn-lang-en" class="text-sm font-semibold text-bpf-muted hover:text-white transition-colors duration-200">EN</button>
-        </div>
-    </nav>
+    </header>
 
-    <main class="px-3 sm:px-6 max-w-[1400px] mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[clamp(0.5rem,2vw,1rem)] auto-rows-[minmax(clamp(180px,25vh,300px),auto)]">
-            
-            <!-- Hero Card -->
-            <div class="bento-card stagger-enter col-span-2 md:col-span-2 lg:col-span-3 md:row-span-2 group">
-                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599552375245-ba37fdbbf93a?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
-                
-                <div class="bento-content p-[clamp(1rem,4vw,3rem)] justify-end">
-                    <div class="inline-flex items-center gap-2 mb-[clamp(0.5rem,2vw,1rem)] bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 w-max">
-                        <span class="w-2 h-2 rounded-full bg-bpf-gold animate-pulse"></span>
-                        <span class="text-[clamp(0.55rem,1.5vw,0.75rem)] font-bold tracking-widest uppercase text-white/90" data-i18n="badge-official">Официальная организация</span>
-                    </div>
-                    <h1 class="text-[clamp(2rem,6vw+0.5rem,4.5rem)] font-heading font-bold text-white leading-[1.1] mb-[clamp(0.75rem,2vw,1rem)]" data-i18n="hero-title">
-                        БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200">ПАНКРАТИОНА</span>
-                    </h1>
-                    <p class="text-[clamp(0.875rem,2vw,1.25rem)] text-bpf-text max-w-2xl mb-[clamp(1rem,3vw,2rem)]" data-i18n="hero-desc">
-                        Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.
-                    </p>
-                    <div class="flex flex-wrap gap-[clamp(0.5rem,2vw,1rem)]">
-                        <button id="btn-join" class="bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-xl transition-all duration-300 font-heading text-[clamp(0.8rem,1.5vw,1.125rem)] transform hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)]" data-i18n="btn-join">
-                            Вступить
-                        </button>
-                        <button id="btn-rules" class="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold uppercase tracking-wider px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-xl transition-all duration-300 font-heading text-[clamp(0.8rem,1.5vw,1.125rem)]" data-i18n="btn-rules">
-                            Правила
-                        </button>
-                    </div>
+    <main class="bento-container">
+        
+        <!-- Герой блок -->
+        <section class="bento-card hero-block">
+            <h1 data-i18n="hero_title">Вся мощь <span>древних традиций</span></h1>
+            <p data-i18n="hero_subtitle">Официальная Белорусская федерация панкратиона и смешанных боевых искусств. Развиваем спорт, воспитываем чемпионов, чтим историю.</p>
+        </section>
+
+        <!-- Блок действий -->
+        <section class="bento-card action-block">
+            <h2 class="card-title" data-i18n="action_title">Стань частью команды</h2>
+            <button class="btn btn-gold" id="btn-join" data-i18n="btn_join">Вступить</button>
+            <button class="btn btn-outline" id="btn-rules" data-i18n="btn_rules">Правила спорта</button>
+        </section>
+
+        <!-- Блок Руководство -->
+        <section class="bento-card leadership-block">
+            <h2 class="card-title" data-i18n="leadership_title">Президиум Федерации</h2>
+            <div class="leaders-grid">
+                <!-- Реальные руководители -->
+                <div class="leader-card">
+                    <img src="https://ui-avatars.com/api/?name=А+С&background=1a1a1a&color=d4af37&size=250" alt="Савчук Алексей Владимирович">
+                    <h4 data-i18n="lead1_name">Савчук Алексей Владимирович</h4>
+                    <p data-i18n="lead1_title">Председатель федерации</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://ui-avatars.com/api/?name=Р+Р&background=1a1a1a&color=d4af37&size=250" alt="Романов Роман Сергеевич">
+                    <h4 data-i18n="lead2_name">Романов Роман Сергеевич</h4>
+                    <p data-i18n="lead2_title">Исполнительный директор</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://ui-avatars.com/api/?name=В+Ш&background=1a1a1a&color=d4af37&size=250" alt="Шпаковский Виталий Анатольевич">
+                    <h4 data-i18n="lead3_name">Шпаковский Виталий Анатольевич</h4>
+                    <p data-i18n="lead3_title">Зам. Председателя по регионам</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://ui-avatars.com/api/?name=А+А&background=1a1a1a&color=d4af37&size=250" alt="Анцыпович Алексей Николаевич">
+                    <h4 data-i18n="lead4_name">Анцыпович Алексей Николаевич</h4>
+                    <p data-i18n="lead4_title">Зам. Председателя по спорту</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://ui-avatars.com/api/?name=А+Б&background=1a1a1a&color=d4af37&size=250" alt="Богданович Александр Владимирович">
+                    <h4 data-i18n="lead5_name">Богданович Александр В.</h4>
+                    <p data-i18n="lead5_title">Зам. Председателя по орг. вопросам</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://ui-avatars.com/api/?name=В+С&background=1a1a1a&color=d4af37&size=250" alt="Сюльжин Валентин Александрович">
+                    <h4 data-i18n="lead6_name">Сюльжин Валентин Александрович</h4>
+                    <p data-i18n="lead6_title">Зам. по международным отношениям</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Info Card 1 -->
-            <div class="bento-card stagger-enter col-span-2 md:col-span-1 lg:col-span-1 row-span-1 md:row-span-2 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
-                <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-col h-full">
-                    <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.5rem,2vw,1rem)] border-b border-white/10 pb-3" data-i18n="card1-title">Синтез силы</h3>
-                    <div class="flex-grow flex flex-col justify-center gap-[clamp(0.5rem,2vw,1rem)]">
-                        <p class="text-bpf-muted leading-relaxed text-[clamp(0.8rem,1.5vw,1rem)]" data-i18n="card1-p1">
-                            Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).
-                        </p>
-                        <p class="text-bpf-text leading-relaxed text-[clamp(0.8rem,1.5vw,1rem)] font-medium" data-i18n="card1-p2">
-                            Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.
-                        </p>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-white/10">
-                        <button class="text-bpf-gold hover:text-bpf-goldHover font-heading uppercase text-[clamp(0.75rem,1.5vw,0.875rem)] tracking-wider flex items-center gap-2 group/link">
-                            <span data-i18n="btn-more">Подробнее</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
-                    </div>
+        <!-- Блок Партнеры -->
+        <section class="bento-card partners-block">
+            <h2 class="card-title" data-i18n="partners_title">Наши партнеры</h2>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <span class="marquee-item">UWW PANKRATION</span>
+                    <span class="marquee-item">MINISTRY OF SPORT RB</span>
+                    <span class="marquee-item">FIGHT CLUB MINSK</span>
+                    <span class="marquee-item">BELARUS MMA</span>
+                    <!-- Дублируем для плавности -->
+                    <span class="marquee-item">UWW PANKRATION</span>
+                    <span class="marquee-item">MINISTRY OF SPORT RB</span>
+                    <span class="marquee-item">FIGHT CLUB MINSK</span>
+                    <span class="marquee-item">BELARUS MMA</span>
                 </div>
             </div>
+        </section>
 
-            <!-- Stats Card -->
-            <div class="bento-card stagger-enter col-span-2 sm:col-span-1 md:col-span-1 row-span-1">
-                <div class="bento-content p-[clamp(1rem,3vw,1.5rem)] flex flex-col justify-between">
-                    <h3 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-2" data-i18n="stats-title">Наши масштабы</h3>
-                    <div class="grid grid-cols-2 gap-[clamp(0.5rem,2vw,1rem)] h-full">
-                        <div class="flex flex-col justify-center">
-                            <span class="font-heading text-[clamp(1.5rem,4vw,2.25rem)] text-bpf-gold leading-none">50+</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-clubs">Клубов в РБ</span>
-                        </div>
-                        <div class="flex flex-col justify-center">
-                            <span class="font-heading text-[clamp(1.5rem,4vw,2.25rem)] text-white leading-none">1000+</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-athletes">Атлетов</span>
-                        </div>
-                        <div class="flex flex-col justify-center">
-                            <span class="font-heading text-[clamp(1.5rem,4vw,2.25rem)] text-white leading-none">6</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-regions">Регионов</span>
-                        </div>
-                        <div class="flex flex-col justify-center">
-                            <span class="font-heading text-[clamp(1.25rem,3vw,1.75rem)] text-bpf-gold leading-none">UWW</span>
-                            <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted uppercase font-bold tracking-wider mt-1" data-i18n="stats-recognition">Признание</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- Блок Связь -->
+        <section class="bento-card social-block">
+            <h2 class="card-title" data-i18n="social_title">Ресурсы</h2>
+            <div class="social-links">
+                <a href="https://t.me/BFPMMA" target="_blank" class="social-link">TELEGRAM</a>
+                <a href="https://www.instagram.com/pankrationfederation/" target="_blank" class="social-link">INSTAGRAM</a>
             </div>
+        </section>
 
-            <!-- Tournament Banner -->
-            <div class="bento-card stagger-enter col-span-2 lg:col-span-2 row-span-1 bg-[#121212] relative overflow-hidden group">
-                <div class="absolute right-[-10%] top-[-20%] w-[clamp(100px,30vw,256px)] h-[clamp(100px,30vw,256px)] bg-bpf-red/10 rounded-full blur-3xl group-hover:bg-bpf-red/20 transition-colors duration-500"></div>
-                <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
-                    <div class="flex-1">
-                        <div class="text-bpf-red font-bold text-[clamp(0.55rem,1.5vw,0.75rem)] uppercase tracking-widest mb-2 flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-bpf-red flex-shrink-0"></span> <span class="truncate" data-i18n="tourney-badge">Ближайший турнир</span>
-                        </div>
-                        <h3 class="font-heading text-[clamp(1.25rem,3vw,1.875rem)] text-white mb-2 leading-tight" data-i18n="tourney-title">Открытый Чемпионат РБ 2026</h3>
-                        <p class="text-bpf-muted text-[clamp(0.75rem,2vw,0.875rem)] flex items-start sm:items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 mt-0.5 sm:mt-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <span class="line-clamp-2 sm:line-clamp-1" data-i18n="tourney-loc">Минск, РЦОП по единоборствам</span>
-                        </p>
-                    </div>
-                    <div class="flex-shrink-0 text-center bg-white/5 border border-white/10 rounded-xl p-[clamp(0.75rem,2vw,1rem)] min-w-[clamp(80px,15vw,120px)]">
-                        <div class="font-heading text-[clamp(1.75rem,5vw,2.5rem)] text-white leading-none mb-1">15</div>
-                        <div class="font-heading text-bpf-gold tracking-widest uppercase text-[clamp(0.6rem,1.5vw,0.875rem)]" data-i18n="tourney-month">Ноября</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Board of Directors -->
-            <div class="bento-card stagger-enter col-span-2 md:col-span-3 lg:col-span-4 lg:row-span-2">
-                <div class="bento-content p-[clamp(1.25rem,3vw,2rem)]">
-                    <div class="flex items-center justify-between mb-[clamp(1rem,3vw,2rem)] border-b border-white/10 pb-4">
-                        <h3 class="font-heading text-[clamp(1.5rem,3vw,1.875rem)] text-white" data-i18n="board-title">Руководство Федерации</h3>
-                        <span class="text-bpf-gold text-[clamp(0.65rem,1.5vw,0.875rem)] tracking-widest uppercase font-bold hidden sm:block" data-i18n="board-subtitle">Представители</span>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-[clamp(0.75rem,2vw,1.5rem)]">
-                        <div class="group/person cursor-pointer">
-                            <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
-                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
-                            </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-volkov">Александр Волков</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-pres">Президент</p>
-                        </div>
-                        <div class="group/person cursor-pointer">
-                            <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
-                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
-                            </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-kovalev">Михаил Ковалев</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-vp">Вице-президент</p>
-                        </div>
-                        <div class="group/person cursor-pointer">
-                            <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
-                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
-                            </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-savitsky">Дмитрий Савицкий</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-coach">Главный тренер</p>
-                        </div>
-                        <div class="group/person cursor-pointer">
-                            <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
-                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
-                            </div>
-                            <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-novikova">Елена Новикова</h4>
-                            <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-judge">Судейская коллегия</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Partners Marquee -->
-            <div class="bento-card stagger-enter col-span-2 md:col-span-3 lg:col-span-4 row-span-1 overflow-hidden flex flex-col justify-center py-[clamp(1rem,3vw,2rem)]">
-                <div class="bento-content">
-                    <h3 class="font-heading text-center text-bpf-muted text-[clamp(0.6rem,1.5vw,0.875rem)] uppercase tracking-widest mb-[clamp(1rem,3vw,1.5rem)]" data-i18n="partners-title">Официальные партнеры</h3>
-                    <div class="relative w-full overflow-hidden flex items-center">
-                        <div class="absolute left-0 w-[clamp(2rem,10vw,8rem)] h-full bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
-                        <div class="absolute right-0 w-[clamp(2rem,10vw,8rem)] h-full bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
-                        
-                        <div class="marquee-container gap-[clamp(2rem,5vw,4rem)] items-center px-4">
-                            <!-- Loop 1 -->
-                            <div class="flex items-center gap-[clamp(2rem,5vw,4rem)] min-w-max">
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">MINSK ARENA</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">UWW OFFICIAL</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">SPORT BELARUS</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">BELARUSBANK</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">DYNAMO CLUB</div>
-                            </div>
-                            <!-- Loop 2 -->
-                            <div class="flex items-center gap-[clamp(2rem,5vw,4rem)] min-w-max">
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">MINSK ARENA</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">UWW OFFICIAL</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">SPORT BELARUS</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">BELARUSBANK</div>
-                                <div class="text-[clamp(1rem,3vw,1.5rem)] font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">DYNAMO CLUB</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Card -->
-            <div class="bento-card stagger-enter col-span-2 sm:col-span-1 row-span-1 p-0 group overflow-hidden cursor-pointer" id="btn-gallery">
-                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center grayscale transition-transform duration-700 group-hover:scale-110"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div class="bento-content p-[clamp(1rem,3vw,1.5rem)] justify-end pointer-events-none">
-                    <h4 class="font-heading text-[clamp(1.125rem,2.5vw,1.25rem)] text-white leading-tight" data-i18n="gallery-title">Галерея</h4>
-                    <p class="text-[clamp(0.6rem,1.5vw,0.75rem)] text-bpf-muted mt-1" data-i18n="gallery-desc">Фотоотчеты с соревнований</p>
-                </div>
-            </div>
-
-            <!-- Contacts Card -->
-            <div class="bento-card stagger-enter col-span-2 md:col-span-2 row-span-1">
-                <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-col justify-center h-full">
-                    <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.75rem,2vw,1.5rem)]" data-i18n="contact-title">Связь и ресурсы</h3>
-                    <div class="flex flex-wrap gap-[clamp(0.5rem,1.5vw,0.75rem)]">
-                        <button class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
-                            Telegram
-                        </button>
-                        <button class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
-                            Instagram
-                        </button>
-                        <button class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center" data-i18n="link-docs">
-                            Документы
-                        </button>
-                        <button class="flex-grow w-full sm:w-auto sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-bpf-gold/10 hover:bg-bpf-gold/20 text-bpf-gold border border-bpf-gold/30 hover:border-bpf-gold text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2">
-                            info@pankration.by
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <footer class="mt-12 text-center text-bpf-muted text-sm pb-8 max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div data-i18n="footer-copy">© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
-        <div class="flex gap-4">
-            <button class="hover:text-white transition-colors" data-i18n="footer-privacy">Политика конфиденциальности</button>
-            <button class="hover:text-white transition-colors" data-i18n="footer-contacts">Контакты</button>
-        </div>
+    <footer>
+        &copy; 2026 <span data-i18n="footer_text">Белорусская Федерация Панкратиона. Все права защищены.</span> 
+        <a id="btn-privacy-footer" data-i18n="privacy_link">Политика конфиденциальности</a>
     </footer>
 
-    <!-- Modal: Join Form -->
-    <div id="modal-join" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <!-- Overlay background for closing -->
-        <div class="absolute inset-0 modal-bg-close"></div>
-        
-        <!-- Modal Content -->
-        <div class="bg-bpf-card/90 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-xl rounded-2xl p-6 md:p-8 w-full max-w-lg relative transform scale-95 transition-transform duration-300 modal-inner">
-            <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            
-            <h2 class="font-heading text-2xl text-white mb-2" data-i18n="modal-join-title">Заявка на вступление</h2>
-            <p class="text-bpf-muted text-sm mb-6" data-i18n="modal-join-desc">Заполните форму ниже, и мы свяжемся с вами.</p>
-            
-            <form class="space-y-4" onsubmit="event.preventDefault();">
-                <div>
-                    <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-name">ФИО</label>
-                    <input type="text" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" data-i18n-placeholder="form-name-ph" placeholder="Иванов Иван Иванович">
+    <!-- ПОПАП: Вступить -->
+    <div class="modal-overlay" id="modal-join">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal-join')">&times;</button>
+            <h2 class="card-title" data-i18n="form_title">Заявка на вступление</h2>
+            <form id="join-form">
+                <div class="form-group">
+                    <label data-i18n="label_fio">ФИО</label>
+                    <input type="text" class="form-control" required>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-gender">Пол</label>
-                        <select class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-bpf-gold transition-colors appearance-none">
-                            <option value="m" data-i18n="form-gender-m">Мужской</option>
-                            <option value="f" data-i18n="form-gender-f">Женский</option>
-                        </select>
+                <div class="form-group">
+                    <label data-i18n="label_gender">Пол</label>
+                    <select class="form-control">
+                        <option value="male" data-i18n="gender_m">Мужской</option>
+                        <option value="female" data-i18n="gender_f">Женский</option>
+                    </select>
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label data-i18n="label_age">Возраст</label>
+                        <input type="number" class="form-control" required>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-age">Возраст</label>
-                        <input type="number" min="14" max="99" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="18">
+                    <div style="flex: 1;">
+                        <label data-i18n="label_weight">Вес (кг)</label>
+                        <input type="number" class="form-control" required>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-weight">Вес (кг)</label>
-                        <input type="number" min="40" max="150" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="75">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-phone">Телефон</label>
-                        <input type="tel" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="+375 (XX) XXX-XX-XX">
-                    </div>
+                <div class="form-group">
+                    <label data-i18n="label_phone">Телефон</label>
+                    <input type="tel" class="form-control" required>
                 </div>
-                
-                <button type="submit" class="w-full mt-4 bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg transition-colors font-heading text-lg" data-i18n="form-submit">
-                    Отправить заявку
-                </button>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy-check" required>
+                    <label for="privacy-check">
+                        <span data-i18n="privacy_agree">Я согласен на обработку персональных данных согласно</span> 
+                        <a onclick="openModal('modal-privacy'); closeModal('modal-join')" data-i18n="privacy_link_form">Политике конфиденциальности</a>.
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-gold" data-i18n="btn_submit">Отправить заявку</button>
             </form>
         </div>
     </div>
 
-    <!-- Modal: Rules -->
-    <div id="modal-rules" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="absolute inset-0 modal-bg-close"></div>
-        
-        <div class="bg-bpf-card/90 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-xl rounded-2xl p-6 md:p-8 w-full max-w-2xl relative transform scale-95 transition-transform duration-300 modal-inner flex flex-col max-h-[80vh]">
-            <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            
-            <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="modal-rules-title">Правила соревнований</h2>
-            
-            <div class="overflow-y-auto pr-4 text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="modal-rules-text">
-                <p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику. Соревнования проводятся на сертифицированном татами или в октагоне.</p>
-                <p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени (опционально в зависимости от дивизиона).</p>
-                <p><strong>3. Разрешенные действия:</strong>
-                   <br>- Удары руками и ногами по корпусу и ногам.
-                   <br>- Броски, сваливания, подсечки.
-                   <br>- Болевые приемы на руки и ноги (за исключением скручивания пятки).
-                   <br>- Удушающие приемы.
-                </p>
-                <p><strong>4. Запрещенные действия:</strong>
-                   <br>- Удары в пах, позвоночник, затылок.
-                   <br>- Тычки в глаза, кусание, царапание.
-                   <br>- Удары коленями в голову в партере.
-                </p>
-                <p><strong>5. Определение победителя:</strong> Победа присуждается досрочно (нокаут, сдача соперника) или по очкам, начисляемым судьями за амплитудные броски, точные удары и контроль в партере.</p>
+    <!-- ПОПАП: Правила -->
+    <div class="modal-overlay" id="modal-rules">
+        <div class="modal-content rules-modal">
+            <button class="close-btn" onclick="closeModal('modal-rules')">&times;</button>
+            <h2 class="card-title" data-i18n="rules_title">Правила Панкратиона</h2>
+            <div class="modal-text-content">
+                <h3 data-i18n="rules_h1">1. Общие положения</h3>
+                <p data-i18n="rules_p1">Панкратион (UWW) делится на традиционный (без ударов в голову руками) и элитный (полный контакт). Поединки проходят на борцовском ковре.</p>
+                <h3 data-i18n="rules_h2">2. Экипировка</h3>
+                <p data-i18n="rules_p2">Спортсмены выступают в специальной форме (рашгард и шорты), используются перчатки для ММА (не менее 4 унций), капа, бандаж и защита голени (в зависимости от возраста и раздела).</p>
+                <h3 data-i18n="rules_h3">3. Оценка действий</h3>
+                <ul data-i18n="rules_ul">
+                    <li>1 балл: Точный удар рукой, перевод в партер.</li>
+                    <li>2 балла: Удар ногой в корпус, сложный бросок.</li>
+                    <li>3 балла: Удар ногой в голову (в элитном разделе), амплитудный бросок.</li>
+                </ul>
             </div>
         </div>
     </div>
 
+    <!-- ПОПАП: Политика конфиденциальности (РБ) -->
+    <div class="modal-overlay" id="modal-privacy">
+        <div class="modal-content privacy-modal">
+            <button class="close-btn" onclick="closeModal('modal-privacy')">&times;</button>
+            <h2 class="card-title" data-i18n="privacy_title">Политика обработки персональных данных</h2>
+            <div class="modal-text-content">
+                <p data-i18n="priv_p1">Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p>
+                <h3 data-i18n="priv_h1">1. Цели обработки</h3>
+                <p data-i18n="priv_p2">Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований, ведения спортивной статистики и связи с заявителем.</p>
+                <h3 data-i18n="priv_h2">2. Объем обрабатываемых данных</h3>
+                <p data-i18n="priv_p3">Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно путем заполнения формы на сайте.</p>
+                <h3 data-i18n="priv_h3">3. Права субъекта данных</h3>
+                <p data-i18n="priv_p4">В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование внесения изменений в данные; на требование удаления персональных данных.</p>
+                <h3 data-i18n="priv_h4">4. Защита информации</h3>
+                <p data-i18n="priv_p5">Федерация принимает правовые, организационные и технические меры по обеспечению защиты персональных данных от несанкционированного доступа.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты для логики и анимаций -->
     <script>
+        // --- 1. Словари для перевода ---
         const translations = {
             ru: {
-                // Navigation & Hero
-                "nav-title": "ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ",
-                "badge-official": "Официальная организация",
-                "hero-title": "БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>ПАНКРАТИОНА</span>",
-                "hero-desc": "Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.",
-                "btn-join": "Вступить",
-                "btn-rules": "Правила",
+                page_title: "Белорусская Федерация Панкратиона",
+                hero_title: "Вся мощь <span>древних традиций</span>",
+                hero_subtitle: "Официальная Белорусская федерация панкратиона и смешанных боевых искусств. Развиваем спорт, воспитываем чемпионов, чтим историю.",
+                action_title: "Стань частью команды",
+                btn_join: "Вступить",
+                btn_rules: "Правила спорта",
+                leadership_title: "Президиум Федерации",
+                partners_title: "Наши партнеры",
+                social_title: "Ресурсы",
+                footer_text: "Белорусская Федерация Панкратиона. Все права защищены.",
                 
-                // Cards
-                "card1-title": "Синтез силы",
-                "card1-p1": "Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).",
-                "card1-p2": "Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.",
-                "btn-more": "Подробнее",
-                "stats-title": "Наши масштабы",
-                "stats-clubs": "Клубов в РБ",
-                "stats-athletes": "Атлетов",
-                "stats-regions": "Регионов",
-                "stats-recognition": "Признание",
-                
-                // Tournament
-                "tourney-badge": "Ближайший турнир",
-                "tourney-title": "Открытый Чемпионат РБ 2026",
-                "tourney-loc": "Минск, РЦОП по единоборствам",
-                "tourney-month": "Ноября",
-                
-                // Board
-                "board-title": "Руководство Федерации",
-                "board-subtitle": "Представители",
-                "name-volkov": "Александр Волков",
-                "name-kovalev": "Михаил Ковалев",
-                "name-savitsky": "Дмитрий Савицкий",
-                "name-novikova": "Елена Новикова",
-                "role-pres": "Президент",
-                "role-vp": "Вице-президент",
-                "role-coach": "Главный тренер",
-                "role-judge": "Судейская коллегия",
-                
-                // Misc
-                "partners-title": "Официальные партнеры",
-                "gallery-title": "Галерея",
-                "gallery-desc": "Фотоотчеты с соревнований",
-                "contact-title": "Связь и ресурсы",
-                "link-docs": "Документы",
-                "footer-copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.",
-                "footer-privacy": "Политика конфиденциальности",
-                "footer-contacts": "Контакты",
+                /* Руководство */
+                lead1_name: "Савчук Алексей Владимирович", lead1_title: "Председатель федерации",
+                lead2_name: "Романов Роман Сергеевич", lead2_title: "Исполнительный директор",
+                lead3_name: "Шпаковский Виталий Анатольевич", lead3_title: "Зам. Председателя по регионам",
+                lead4_name: "Анцыпович Алексей Николаевич", lead4_title: "Зам. Председателя по спорту",
+                lead5_name: "Богданович Александр В.", lead5_title: "Зам. Председателя по орг. вопросам",
+                lead6_name: "Сюльжин Валентин Александрович", lead6_title: "Зам. по международным отношениям",
 
-                // Modals (Join Form)
-                "modal-join-title": "Заявка на вступление",
-                "modal-join-desc": "Заполните форму ниже, и мы свяжемся с вами в ближайшее время.",
-                "form-name": "ФИО",
-                "form-name-ph": "Иванов Иван Иванович",
-                "form-gender": "Пол",
-                "form-gender-m": "Мужской",
-                "form-gender-f": "Женский",
-                "form-age": "Возраст",
-                "form-weight": "Вес (кг)",
-                "form-phone": "Телефон",
-                "form-submit": "Отправить заявку",
-                
-                // Modals (Rules)
-                "modal-rules-title": "Правила соревнований",
-                "modal-rules-text": "<p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику. Соревнования проводятся на сертифицированном татами или в октагоне.</p><p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени (опционально в зависимости от дивизиона).</p><p><strong>3. Разрешенные действия:</strong><br>- Удары руками и ногами по корпусу и ногам.<br>- Броски, сваливания, подсечки.<br>- Болевые приемы на руки и ноги (за исключением скручивания пятки).<br>- Удушающие приемы.</p><p><strong>4. Запрещенные действия:</strong><br>- Удары в пах, позвоночник, затылок.<br>- Тычки в глаза, кусание, царапание.<br>- Удары коленями в голову в партере.</p><p><strong>5. Определение победителя:</strong> Победа присуждается досрочно (нокаут, сдача соперника) или по очкам, начисляемым судьями за амплитудные броски, точные удары и контроль в партере.</p>"
+                /* Форма */
+                form_title: "Заявка на вступление",
+                label_fio: "ФИО", label_gender: "Пол", gender_m: "Мужской", gender_f: "Женский",
+                label_age: "Возраст", label_weight: "Вес (кг)", label_phone: "Телефон",
+                privacy_agree: "Я согласен на обработку персональных данных согласно",
+                privacy_link: "Политика конфиденциальности", privacy_link_form: "Политике конфиденциальности",
+                btn_submit: "Отправить заявку",
+
+                /* Правила */
+                rules_title: "Правила Панкратиона",
+                rules_h1: "1. Общие положения",
+                rules_p1: "Панкратион (UWW) делится на традиционный (без ударов в голову руками) и элитный (полный контакт). Поединки проходят на борцовском ковре.",
+                rules_h2: "2. Экипировка",
+                rules_p2: "Спортсмены выступают в специальной форме (рашгард и шорты), используются перчатки для ММА (не менее 4 унций), капа, бандаж и защита голени (в зависимости от возраста и раздела).",
+                rules_h3: "3. Оценка действий",
+                rules_ul: "<li>1 балл: Точный удар рукой, перевод в партер.</li><li>2 балла: Удар ногой в корпус, сложный бросок.</li><li>3 балла: Удар ногой в голову (в элитном разделе), амплитудный бросок.</li>",
+
+                /* Политика конфиденциальности */
+                privacy_title: "Политика обработки персональных данных",
+                priv_p1: "Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».",
+                priv_h1: "1. Цели обработки",
+                priv_p2: "Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований, ведения спортивной статистики и связи с заявителем.",
+                priv_h2: "2. Объем обрабатываемых данных",
+                priv_p3: "Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно путем заполнения формы на сайте.",
+                priv_h3: "3. Права субъекта данных",
+                priv_p4: "В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование внесения изменений в данные; на требование удаления персональных данных.",
+                priv_h4: "4. Защита информации",
+                priv_p5: "Федерация принимает правовые, организационные и технические меры по обеспечению защиты персональных данных от несанкционированного доступа."
             },
             en: {
-                // Navigation & Hero
-                "nav-title": "PANKRATION FEDERATION BY",
-                "badge-official": "Official Organization",
-                "hero-title": "BELARUSIAN FEDERATION OF <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>PANKRATION</span>",
-                "hero-desc": "Reviving ancient traditions. Raising modern champions. A universal fighting discipline combining striking and wrestling.",
-                "btn-join": "Join Us",
-                "btn-rules": "Rules",
+                page_title: "Belarusian Pankration Federation",
+                hero_title: "The Power of <span>Ancient Traditions</span>",
+                hero_subtitle: "Official Belarusian Federation of Pankration and MMA. Developing sports, raising champions, honoring history.",
+                action_title: "Become a Part of the Team",
+                btn_join: "Join Now",
+                btn_rules: "Sport Rules",
+                leadership_title: "Presidium of the Federation",
+                partners_title: "Our Partners",
+                social_title: "Resources",
+                footer_text: "Belarusian Pankration Federation. All rights reserved.",
                 
-                // Cards
-                "card1-title": "Synthesis of Power",
-                "card1-p1": "Pankration is the legacy of the Ancient Greek Olympic Games (648 BC). Today, it is the foundation of Mixed Martial Arts (MMA).",
-                "card1-p2": "Our mission is the development of the sport in the Republic of Belarus, training world-class athletes.",
-                "btn-more": "Learn More",
-                "stats-title": "Our Scale",
-                "stats-clubs": "Clubs in BY",
-                "stats-athletes": "Athletes",
-                "stats-regions": "Regions",
-                "stats-recognition": "Recognition",
-                
-                // Tournament
-                "tourney-badge": "Upcoming Tournament",
-                "tourney-title": "Open Championship BY 2026",
-                "tourney-loc": "Minsk, Olympic Martial Arts Center",
-                "tourney-month": "November",
-                
-                // Board
-                "board-title": "Federation Board",
-                "board-subtitle": "Representatives",
-                "name-volkov": "Alexander Volkov",
-                "name-kovalev": "Mikhail Kovalev",
-                "name-savitsky": "Dmitry Savitsky",
-                "name-novikova": "Elena Novikova",
-                "role-pres": "President",
-                "role-vp": "Vice President",
-                "role-coach": "Head Coach",
-                "role-judge": "Judging Panel",
-                
-                // Misc
-                "partners-title": "Official Partners",
-                "gallery-title": "Gallery",
-                "gallery-desc": "Tournament Photo Reports",
-                "contact-title": "Contact & Resources",
-                "link-docs": "Documents",
-                "footer-copy": "© 2026 Belarusian Pankration Federation. All rights reserved.",
-                "footer-privacy": "Privacy Policy",
-                "footer-contacts": "Contacts",
+                lead1_name: "Aliaksei Savchuk", lead1_title: "Chairman of the Federation",
+                lead2_name: "Raman Ramanau", lead2_title: "Executive Director",
+                lead3_name: "Vitaly Shpakovsky", lead3_title: "Deputy Chairman (Regions)",
+                lead4_name: "Aliaksei Antsypovich", lead4_title: "Deputy Chairman (Sports)",
+                lead5_name: "Aliaksandr Bahdanovich", lead5_title: "Deputy Chairman (Organization)",
+                lead6_name: "Valyantsin Syulzhyn", lead6_title: "Deputy Chairman (International)",
 
-                // Modals (Join Form)
-                "modal-join-title": "Membership Application",
-                "modal-join-desc": "Fill out the form below and we will contact you shortly.",
-                "form-name": "Full Name",
-                "form-name-ph": "John Doe",
-                "form-gender": "Gender",
-                "form-gender-m": "Male",
-                "form-gender-f": "Female",
-                "form-age": "Age",
-                "form-weight": "Weight (kg)",
-                "form-phone": "Phone",
-                "form-submit": "Submit Application",
-                
-                // Modals (Rules)
-                "modal-rules-title": "Competition Rules",
-                "modal-rules-text": "<p><strong>1. General Provisions:</strong> Pankration is a full-contact martial art combining striking and grappling. Competitions are held on certified mats or in an octagon.</p><p><strong>2. Equipment:</strong> Fighters must wear UWW-approved protective gear: headguard (for certain age categories), mouthguard, pankration gloves, groin guard, shin guards (optional depending on division).</p><p><strong>3. Allowed Actions:</strong><br>- Punches and kicks to the body and legs.<br>- Throws, takedowns, sweeps.<br>- Joint locks on arms and legs (excluding heel hooks).<br>- Chokeholds.</p><p><strong>4. Forbidden Actions:</strong><br>- Strikes to the groin, spine, back of the head.<br>- Eye pokes, biting, scratching.<br>- Knee strikes to the head on the ground.</p><p><strong>5. Determining the Winner:</strong> Victory is awarded early (knockout, submission) or on points scored by judges for amplitude throws, accurate strikes, and ground control.</p>"
+                form_title: "Application Form",
+                label_fio: "Full Name", label_gender: "Gender", gender_m: "Male", gender_f: "Female",
+                label_age: "Age", label_weight: "Weight (kg)", label_phone: "Phone",
+                privacy_agree: "I agree to the processing of personal data according to the",
+                privacy_link: "Privacy Policy", privacy_link_form: "Privacy Policy",
+                btn_submit: "Submit Application",
+
+                rules_title: "Pankration Rules",
+                rules_h1: "1. General Provisions",
+                rules_p1: "Pankration (UWW) is divided into traditional (no punches to the head) and elite (full contact). Bouts take place on a wrestling mat.",
+                rules_h2: "2. Equipment",
+                rules_p2: "Athletes wear special uniforms (rashguard and shorts), MMA gloves (min 4 oz), mouthguard, groin guard, and shin guards (depending on age/division).",
+                rules_h3: "3. Scoring",
+                rules_ul: "<li>1 point: Accurate punch, takedown.</li><li>2 points: Kick to the body, complex throw.</li><li>3 points: Kick to the head (elite division), high-amplitude throw.</li>",
+
+                privacy_title: "Personal Data Processing Policy",
+                priv_p1: "This Policy is developed in accordance with the Law of the Republic of Belarus dated 07.05.2021 No. 99-Z 'On Personal Data Protection'.",
+                priv_h1: "1. Purposes of Processing",
+                priv_p2: "Data is collected solely for registering athletes in the Federation, organizing competitions, maintaining sports statistics, and contacting the applicant.",
+                priv_h2: "2. Scope of Data",
+                priv_p3: "We process: Full Name, gender, age, weight, phone number. Data is provided voluntarily by filling out the form on the website.",
+                priv_h3: "3. Rights of the Data Subject",
+                priv_p4: "In accordance with Art. 10-14 of Law No. 99-Z, you have the right to: withdraw consent; receive information about processing; demand modification of data; demand deletion of data.",
+                priv_h4: "4. Information Security",
+                priv_p5: "The Federation takes legal, organizational, and technical measures to ensure the protection of personal data from unauthorized access."
             }
         };
 
-        function setLanguage(lang) {
-            // Update standard HTML content
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
+                if(translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
+        }
 
-            // Update Input Placeholders
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.setAttribute('placeholder', translations[lang][key]);
+        // --- 2. Логика Модальных окон ---
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        document.getElementById('btn-join').addEventListener('click', () => openModal('modal-join'));
+        document.getElementById('btn-rules').addEventListener('click', () => openModal('modal-rules'));
+        document.getElementById('btn-privacy-footer').addEventListener('click', () => openModal('modal-privacy'));
+
+        // Закрытие по клику вне модалки
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        // --- 3. Анимация Bento Cards (Появление при скролле) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, { threshold: 0.1 });
 
-            // Update UI Button States
-            const btnRu = document.getElementById('btn-lang-ru');
-            const btnEn = document.getElementById('btn-lang-en');
-            
-            const activeClass = "text-sm font-semibold text-bpf-gold transition-colors duration-200";
-            const inactiveClass = "text-sm font-semibold text-bpf-muted hover:text-white transition-colors duration-200";
+        document.querySelectorAll('.bento-card').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
 
-            if (lang === 'ru') {
-                btnRu.className = activeClass;
-                btnEn.className = inactiveClass;
-            } else {
-                btnEn.className = activeClass;
-                btnRu.className = inactiveClass;
-            }
-        }
-
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (!modal) return;
-            const inner = modal.querySelector('.modal-inner');
-            
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-100', 'pointer-events-auto');
-            
-            inner.classList.remove('scale-95');
-            inner.classList.add('scale-100');
-            
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (!modal) return;
-            const inner = modal.querySelector('.modal-inner');
-            
-            modal.classList.remove('opacity-100', 'pointer-events-auto');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            
-            inner.classList.remove('scale-100');
-            inner.classList.add('scale-95');
-            
-            document.body.style.overflow = ''; // Restore background scrolling
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Language Listeners
-            document.getElementById('btn-lang-ru').addEventListener('click', () => setLanguage('ru'));
-            document.getElementById('btn-lang-en').addEventListener('click', () => setLanguage('en'));
-
-            // Hover Tracking
-            const cards = document.querySelectorAll('.bento-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-                });
-            });
-
-            // Scroll animations
-            const animatedElements = document.querySelectorAll('.stagger-enter');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            });
-
-            animatedElements.forEach((el, index) => {
-                el.style.transitionDelay = `${(index % 4) * 100}ms`;
-                observer.observe(el);
-            });
-
-            // Modal Triggers
-            document.getElementById('btn-join').addEventListener('click', () => openModal('modal-join'));
-            document.getElementById('btn-rules').addEventListener('click', () => openModal('modal-rules'));
-
-            // Modal Close Buttons
-            document.querySelectorAll('.btn-close-modal').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.fixed');
-                    closeModal(modal.id);
-                });
-            });
-
-            // Click outside to close modal
-            document.querySelectorAll('.modal-bg-close').forEach(bg => {
-                bg.addEventListener('click', function() {
-                    const modal = this.closest('.fixed');
-                    closeModal(modal.id);
-                });
+        // --- 4. Glowing Edges (подсветка мыши) ---
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener("mousemove", e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
             });
         });
     </script>
