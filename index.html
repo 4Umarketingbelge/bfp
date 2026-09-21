@@ -25,7 +25,6 @@
                             card: '#1a1a1a',
                             gold: '#D4AF37',
                             goldHover: '#f0c742',
-                            red: '#E63946',
                             text: '#e5e5e5',
                             muted: '#a3a3a3'
                         }
@@ -62,7 +61,7 @@
         }
 
         .bento-card:hover {
-            transform: translateY(-4px) scale(1.01);
+            transform: translateY(-4px);
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
             z-index: 10;
         }
@@ -149,7 +148,6 @@
             animation-play-state: paused;
         }
         
-        /* Modal Scroll fix */
         .modal-body-scroll {
             max-height: 60vh;
             overflow-y: auto;
@@ -164,7 +162,7 @@
             <div class="w-10 h-10 rounded bg-bpf-dark border border-bpf-gold/30 flex items-center justify-center">
                 <span class="font-heading text-bpf-gold text-xl font-bold">БФП</span>
             </div>
-            <span class="font-heading tracking-wider text-xl hidden sm:block" data-i18n="nav-title">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
+            <span class="font-heading tracking-wider text-xl hidden sm:block" data-i18n="nav_title">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
         </div>
         <div class="flex gap-4 z-10 relative">
             <button id="btn-lang-ru" class="text-sm font-semibold text-bpf-gold transition-colors duration-200">RU</button>
@@ -173,46 +171,75 @@
     </nav>
 
     <main class="px-3 sm:px-6 max-w-[1400px] mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-[clamp(0.5rem,2vw,1.5rem)] auto-rows-[minmax(200px,auto)]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-[clamp(0.5rem,2vw,1.5rem)] auto-rows-[minmax(180px,auto)]">
             
-            <!-- Hero Card -->
-            <div class="bento-card stagger-enter col-span-1 sm:col-span-2 lg:col-span-3 sm:row-span-2 group min-h-[400px] sm:min-h-[500px]">
+            <!-- Hero Card (Span 3 cols, 2 rows) -->
+            <div class="bento-card stagger-enter col-span-1 sm:col-span-2 lg:col-span-3 sm:row-span-2 group min-h-[400px]">
                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599552375245-ba37fdbbf93a?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                 
                 <div class="bento-content p-6 sm:p-10 justify-end">
                     <div class="inline-flex items-center gap-2 mb-4 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 w-max">
                         <span class="w-2 h-2 rounded-full bg-bpf-gold animate-pulse"></span>
-                        <span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-white/90" data-i18n="badge-official">Официальная организация</span>
+                        <span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-white/90" data-i18n="badge_official">Официальная организация</span>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-white leading-[1.1] mb-4" data-i18n="hero-title">
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-white leading-[1.1] mb-4" data-i18n="hero_title">
                         БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200">ПАНКРАТИОНА</span>
                     </h1>
-                    <p class="text-sm sm:text-lg text-bpf-text max-w-2xl mb-8" data-i18n="hero-desc">
+                    <p class="text-sm sm:text-lg text-bpf-text max-w-2xl mb-2" data-i18n="hero_desc">
                         Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button id="btn-join" class="bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 font-heading text-sm sm:text-lg transform hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)]" data-i18n="btn-join">
-                            Вступить
-                        </button>
-                        <button id="btn-rules" class="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold uppercase tracking-wider px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 font-heading text-sm sm:text-lg" data-i18n="btn-rules">
-                            Правила
-                        </button>
+                </div>
+            </div>
+
+            <!-- Statistics Card (Span 1 col, 1 row) -->
+            <div class="bento-card stagger-enter col-span-1 lg:col-span-1 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
+                <div class="bento-content p-6 flex flex-col justify-center h-full">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <div class="font-heading text-3xl sm:text-4xl text-bpf-gold font-bold">15+</div>
+                            <div class="text-xs text-bpf-muted uppercase tracking-wider font-bold mt-1" data-i18n="stat_years">Лет опыта</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-heading text-3xl sm:text-4xl text-bpf-gold font-bold">50+</div>
+                            <div class="text-xs text-bpf-muted uppercase tracking-wider font-bold mt-1" data-i18n="stat_champs">Чемпионов</div>
+                        </div>
+                        <div class="text-center col-span-2 mt-2">
+                            <div class="font-heading text-3xl sm:text-4xl text-bpf-gold font-bold">20+</div>
+                            <div class="text-xs text-bpf-muted uppercase tracking-wider font-bold mt-1" data-i18n="stat_clubs">Клубов по стране</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Info Card 1 -->
-            <div class="bento-card stagger-enter col-span-1 lg:col-span-1 sm:row-span-2 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
-                <div class="bento-content p-6 sm:p-8 flex flex-col h-full">
-                    <h3 class="font-heading text-xl sm:text-2xl text-white mb-4 border-b border-white/10 pb-3" data-i18n="card1-title">Синтез силы</h3>
-                    <div class="flex-grow flex flex-col justify-center gap-4">
-                        <p class="text-bpf-muted leading-relaxed text-sm sm:text-base" data-i18n="card1-p1">
-                            Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).
-                        </p>
-                        <p class="text-bpf-text leading-relaxed text-sm sm:text-base font-medium" data-i18n="card1-p2">
-                            Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.
-                        </p>
+            <!-- Action Card (Buttons) (Span 1 col, 1 row) -->
+            <div class="bento-card stagger-enter col-span-1 lg:col-span-1">
+                <div class="bento-content p-6 flex flex-col justify-center items-center h-full gap-4">
+                    <button id="btn-join" class="w-full bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-6 py-4 rounded-xl transition-all duration-300 font-heading text-lg shadow-[0_0_20px_rgba(212,175,55,0.3)] transform hover:-translate-y-1" data-i18n="btn_join">
+                        Вступить
+                    </button>
+                    <button id="btn-rules" class="w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold uppercase tracking-wider px-6 py-4 rounded-xl transition-all duration-300 font-heading text-lg" data-i18n="btn_rules">
+                        Правила
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery Card (Span 4 cols, 1 row) -->
+            <div class="bento-card stagger-enter col-span-1 sm:col-span-2 lg:col-span-4 h-48 sm:h-64">
+                <div class="bento-content w-full h-full">
+                    <div class="grid grid-cols-3 w-full h-full gap-1">
+                        <div class="relative overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=800&auto=format&fit=crop" alt="Grappling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500"></div>
+                        </div>
+                        <div class="relative overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1591117207239-788bf8de6c3b?q=80&w=800&auto=format&fit=crop" alt="Fighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500"></div>
+                        </div>
+                        <div class="relative overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1517436073-3b1b16d9a1c4?q=80&w=800&auto=format&fit=crop" alt="Training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -221,80 +248,72 @@
             <div class="bento-card stagger-enter col-span-1 sm:col-span-2 lg:col-span-4">
                 <div class="bento-content p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
-                        <h3 class="font-heading text-2xl sm:text-3xl text-white" data-i18n="board-title">Президиум Федерации</h3>
-                        <span class="text-bpf-gold text-sm tracking-widest uppercase font-bold hidden sm:block" data-i18n="board-subtitle">Руководство</span>
+                        <h3 class="font-heading text-2xl sm:text-3xl text-white" data-i18n="board_title">Президиум Федерации</h3>
+                        <span class="text-bpf-gold text-sm tracking-widest uppercase font-bold hidden sm:block" data-i18n="board_subtitle">Руководство</span>
                     </div>
                     
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-                        <!-- Leader 1 -->
                         <div class="group/person cursor-pointer text-center">
                             <div class="overflow-hidden rounded-full bg-[#121212] aspect-square mb-3 border border-white/10 relative mx-auto w-24 sm:w-32">
                                 <img src="https://ui-avatars.com/api/?name=А+С&background=1a1a1a&color=d4af37&size=250" alt="Савчук А.В." class="w-full h-full object-cover grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-110">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead1-name">Савчук А.В.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead1-role">Председатель</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead1_name">Савчук А.В.</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead1_role">Председатель</p>
                         </div>
-                        <!-- Leader 2 -->
                         <div class="group/person cursor-pointer text-center">
                             <div class="overflow-hidden rounded-full bg-[#121212] aspect-square mb-3 border border-white/10 relative mx-auto w-24 sm:w-32">
                                 <img src="https://ui-avatars.com/api/?name=Р+Р&background=1a1a1a&color=d4af37&size=250" alt="Романов Р.С." class="w-full h-full object-cover grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-110">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead2-name">Романов Р.С.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead2-role">Исполн. директор</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead2_name">Романов Р.С.</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead2_role">Исполн. директор</p>
                         </div>
-                        <!-- Leader 3 -->
                         <div class="group/person cursor-pointer text-center">
                             <div class="overflow-hidden rounded-full bg-[#121212] aspect-square mb-3 border border-white/10 relative mx-auto w-24 sm:w-32">
                                 <img src="https://ui-avatars.com/api/?name=В+Ш&background=1a1a1a&color=d4af37&size=250" alt="Шпаковский В.А." class="w-full h-full object-cover grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-110">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead3-name">Шпаковский В.А.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead3-role">Зам. по регионам</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead3_name">Шпаковский В.А.</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead3_role">Зам. по регионам</p>
                         </div>
-                        <!-- Leader 4 -->
                         <div class="group/person cursor-pointer text-center">
                             <div class="overflow-hidden rounded-full bg-[#121212] aspect-square mb-3 border border-white/10 relative mx-auto w-24 sm:w-32">
                                 <img src="https://ui-avatars.com/api/?name=А+Н&background=1a1a1a&color=d4af37&size=250" alt="Анцыпович А.Н." class="w-full h-full object-cover grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-110">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead4-name">Анцыпович А.Н.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead4-role">Зам. по спорту</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead4_name">Анцыпович А.Н.</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead4_role">Зам. по спорту</p>
                         </div>
-                        <!-- Leader 5 -->
                         <div class="group/person cursor-pointer text-center">
                             <div class="overflow-hidden rounded-full bg-[#121212] aspect-square mb-3 border border-white/10 relative mx-auto w-24 sm:w-32">
                                 <img src="https://ui-avatars.com/api/?name=А+Б&background=1a1a1a&color=d4af37&size=250" alt="Богданович А.В." class="w-full h-full object-cover grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-110">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead5-name">Богданович А.В.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead5-role">Орг. вопросы</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead5_name">Богданович А.В.</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead5_role">Орг. вопросы</p>
                         </div>
-                        <!-- Leader 6 -->
                         <div class="group/person cursor-pointer text-center">
                             <div class="overflow-hidden rounded-full bg-[#121212] aspect-square mb-3 border border-white/10 relative mx-auto w-24 sm:w-32">
                                 <img src="https://ui-avatars.com/api/?name=В+С&background=1a1a1a&color=d4af37&size=250" alt="Сюльжин В.А." class="w-full h-full object-cover grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-110">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead6-name">Сюльжин В.А.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead6-role">Межд. отношения</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead6_name">Сюльжин В.А.</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead6_role">Межд. отношения</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Partners Marquee -->
-            <div class="bento-card stagger-enter col-span-1 sm:col-span-1 lg:col-span-3 overflow-hidden flex flex-col justify-center py-6 sm:py-8">
+            <div class="bento-card stagger-enter col-span-1 sm:col-span-1 lg:col-span-3 overflow-hidden flex flex-col justify-center py-6 sm:py-8 min-h-[160px]">
                 <div class="bento-content">
-                    <h3 class="font-heading text-center text-bpf-muted text-xs sm:text-sm uppercase tracking-widest mb-4" data-i18n="partners-title">Официальные партнеры</h3>
+                    <h3 class="font-heading text-center text-bpf-muted text-xs sm:text-sm uppercase tracking-widest mb-4" data-i18n="partners_title">Официальные партнеры</h3>
                     <div class="relative w-full overflow-hidden flex items-center">
                         <div class="absolute left-0 w-16 sm:w-32 h-full bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
                         <div class="absolute right-0 w-16 sm:w-32 h-full bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
                         
                         <div class="marquee-container gap-12 sm:gap-20 items-center px-4">
-                            <!-- Loop 1 -->
                             <div class="flex items-center gap-12 sm:gap-20 min-w-max">
                                 <div class="text-xl sm:text-2xl font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">UWW PANKRATION</div>
                                 <div class="text-xl sm:text-2xl font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">MINISTRY OF SPORT RB</div>
                                 <div class="text-xl sm:text-2xl font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">FIGHT CLUB MINSK</div>
                                 <div class="text-xl sm:text-2xl font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">BELARUS MMA</div>
                             </div>
-                            <!-- Loop 2 -->
                             <div class="flex items-center gap-12 sm:gap-20 min-w-max">
                                 <div class="text-xl sm:text-2xl font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">UWW PANKRATION</div>
                                 <div class="text-xl sm:text-2xl font-heading font-bold text-white/30 hover:text-white transition-colors cursor-pointer">MINISTRY OF SPORT RB</div>
@@ -307,30 +326,20 @@
             </div>
 
             <!-- Social Links Card -->
-            <div class="bento-card stagger-enter col-span-1 lg:col-span-1">
-                <div class="bento-content p-6 sm:p-8 flex flex-col justify-center h-full">
-                    <h3 class="font-heading text-xl sm:text-2xl text-white mb-4" data-i18n="contact-title">Связь и ресурсы</h3>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://t.me/BFPMMA" target="_blank" class="w-full px-4 py-3 rounded-lg bg-white/5 hover:bg-[#0088cc]/20 border border-white/5 hover:border-[#0088cc] text-[#0088cc] text-sm font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 text-center">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                            Telegram
-                        </a>
-                        <a href="https://www.instagram.com/pankrationfederation/" target="_blank" class="w-full px-4 py-3 rounded-lg bg-white/5 hover:bg-[#E1306C]/20 border border-white/5 hover:border-[#E1306C] text-[#E1306C] text-sm font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 text-center">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.88z"/></svg>
-                            Instagram
-                        </a>
-                    </div>
+            <div class="bento-card stagger-enter col-span-1 lg:col-span-1 min-h-[160px]">
+                <div class="bento-content p-6 flex flex-col justify-center h-full gap-3">
+                    <a href="https://t.me/BFPMMA" target="_blank" class="w-full px-4 py-3 rounded-lg bg-white/5 hover:bg-[#0088cc]/20 border border-white/5 hover:border-[#0088cc] text-[#0088cc] text-sm font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        Telegram
+                    </a>
+                    <a href="https://www.instagram.com/pankrationfederation/" target="_blank" class="w-full px-4 py-3 rounded-lg bg-white/5 hover:bg-[#E1306C]/20 border border-white/5 hover:border-[#E1306C] text-[#E1306C] text-sm font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.88z"/></svg>
+                        Instagram
+                    </a>
                 </div>
             </div>
         </div>
     </main>
-
-    <footer class="mt-12 text-center text-bpf-muted text-sm pb-8 max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div data-i18n="footer-copy">© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
-        <div class="flex gap-4">
-            <button id="btn-privacy-footer" class="hover:text-white transition-colors underline decoration-white/30 underline-offset-4" data-i18n="footer-privacy">Политика конфиденциальности</button>
-        </div>
-    </footer>
 
     <!-- Modal: Join Form -->
     <div id="modal-join" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
@@ -339,44 +348,44 @@
             <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <h2 class="font-heading text-2xl text-white mb-2" data-i18n="modal-join-title">Заявка на вступление</h2>
-            <p class="text-bpf-muted text-sm mb-6" data-i18n="modal-join-desc">Заполните форму ниже, и мы свяжемся с вами.</p>
+            <h2 class="font-heading text-2xl text-white mb-2" data-i18n="modal_join_title">Заявка на вступление</h2>
+            <p class="text-bpf-muted text-sm mb-6" data-i18n="modal_join_desc">Заполните форму ниже, и мы свяжемся с вами.</p>
             <form class="space-y-4" onsubmit="event.preventDefault();">
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-name">ФИО</label>
-                    <input type="text" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" data-i18n-placeholder="form-name-ph" placeholder="Иванов Иван Иванович">
+                    <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form_name">ФИО</label>
+                    <input type="text" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" data-i18n-placeholder="form_name_ph" placeholder="Иванов Иван Иванович">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-gender">Пол</label>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form_gender">Пол</label>
                         <select class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-bpf-gold transition-colors appearance-none">
-                            <option value="m" data-i18n="form-gender-m">Мужской</option>
-                            <option value="f" data-i18n="form-gender-f">Женский</option>
+                            <option value="m" data-i18n="form_gender_m">Мужской</option>
+                            <option value="f" data-i18n="form_gender_f">Женский</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-age">Возраст</label>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form_age">Возраст</label>
                         <input type="number" min="14" max="99" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="18">
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-weight">Вес (кг)</label>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form_weight">Вес (кг)</label>
                         <input type="number" min="40" max="150" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="75">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-phone">Телефон</label>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form_phone">Телефон</label>
                         <input type="tel" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="+375 (XX) XXX-XX-XX">
                     </div>
                 </div>
                 <div class="flex items-start gap-3 mt-2">
                     <input type="checkbox" id="agree" required class="mt-1 accent-bpf-gold">
                     <label for="agree" class="text-xs text-bpf-muted">
-                        <span data-i18n="form-agree">Я согласен на обработку персональных данных согласно</span> 
-                        <button type="button" class="text-bpf-gold hover:underline" id="btn-privacy-inline" data-i18n="footer-privacy">Политике конфиденциальности</button>
+                        <span data-i18n="form_agree">Я согласен на обработку персональных данных согласно</span> 
+                        <button type="button" class="text-bpf-gold hover:underline" id="btn-privacy-inline" data-i18n="footer_privacy">Политике конфиденциальности</button>
                     </label>
                 </div>
-                <button type="submit" class="w-full mt-2 bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg transition-colors font-heading text-lg" data-i18n="form-submit">
+                <button type="submit" class="w-full mt-2 bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg transition-colors font-heading text-lg" data-i18n="form_submit">
                     Отправить заявку
                 </button>
             </form>
@@ -390,8 +399,8 @@
             <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal z-10">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="modal-rules-title">Правила соревнований</h2>
-            <div class="modal-body-scroll text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="modal-rules-text">
+            <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="modal_rules_title">Правила соревнований</h2>
+            <div class="modal-body-scroll text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="modal_rules_text">
                 <p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику.</p>
                 <p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени.</p>
                 <p><strong>3. Разрешенные действия:</strong><br>- Удары руками и ногами по корпусу и ногам.<br>- Броски, сваливания, подсечки.<br>- Болевые и удушающие приемы.</p>
@@ -406,8 +415,8 @@
             <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal z-10">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="privacy-title">Политика обработки данных</h2>
-            <div class="modal-body-scroll text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="privacy-text">
+            <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="privacy_title">Политика обработки данных</h2>
+            <div class="modal-body-scroll text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="privacy_text">
                 <p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p>
                 <p><strong>1. Цели обработки:</strong> Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований и связи с заявителем.</p>
                 <p><strong>2. Объем обрабатываемых данных:</strong> Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно.</p>
@@ -416,65 +425,70 @@
         </div>
     </div>
 
+    <footer class="mt-12 text-center text-bpf-muted text-sm pb-8 max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div data-i18n="footer_copy">© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
+        <div class="flex gap-4">
+            <button id="btn-privacy-footer" class="hover:text-white transition-colors underline decoration-white/30 underline-offset-4" data-i18n="footer_privacy">Политика конфиденциальности</button>
+        </div>
+    </footer>
+
     <script>
         const translations = {
             ru: {
-                "nav-title": "ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ", "badge-official": "Официальная организация",
-                "hero-title": "БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>ПАНКРАТИОНА</span>",
-                "hero-desc": "Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.",
-                "btn-join": "Вступить", "btn-rules": "Правила", "card1-title": "Синтез силы",
-                "card1-p1": "Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).",
-                "card1-p2": "Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.",
-                "board-title": "Президиум Федерации", "board-subtitle": "Руководство",
+                "nav_title": "ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ", "badge_official": "Официальная организация",
+                "hero_title": "БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>ПАНКРАТИОНА</span>",
+                "hero_desc": "Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.",
+                "stat_years": "Лет опыта", "stat_champs": "Чемпионов", "stat_clubs": "Клубов по стране",
+                "btn_join": "Вступить", "btn_rules": "Правила",
                 
-                "lead1-name": "Савчук А.В.", "lead1-role": "Председатель",
-                "lead2-name": "Романов Р.С.", "lead2-role": "Исполн. директор",
-                "lead3-name": "Шпаковский В.А.", "lead3-role": "Зам. по регионам",
-                "lead4-name": "Анцыпович А.Н.", "lead4-role": "Зам. по спорту",
-                "lead5-name": "Богданович А.В.", "lead5-role": "Орг. вопросы",
-                "lead6-name": "Сюльжин В.А.", "lead6-role": "Межд. отношения",
+                "board_title": "Президиум Федерации", "board_subtitle": "Руководство",
+                "lead1_name": "Савчук А.В.", "lead1_role": "Председатель",
+                "lead2_name": "Романов Р.С.", "lead2_role": "Исполн. директор",
+                "lead3_name": "Шпаковский В.А.", "lead3_role": "Зам. по регионам",
+                "lead4_name": "Анцыпович А.Н.", "lead4_role": "Зам. по спорту",
+                "lead5_name": "Богданович А.В.", "lead5_role": "Орг. вопросы",
+                "lead6_name": "Сюльжин В.А.", "lead6_role": "Межд. отношения",
 
-                "partners-title": "Официальные партнеры", "contact-title": "Связь и ресурсы",
-                "footer-copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.", "footer-privacy": "Политика конфиденциальности",
+                "partners_title": "Официальные партнеры", "contact_title": "Связь и ресурсы",
+                "footer_copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.", "footer_privacy": "Политика конфиденциальности",
 
-                "modal-join-title": "Заявка на вступление", "modal-join-desc": "Заполните форму ниже, и мы свяжемся с вами.",
-                "form-name": "ФИО", "form-name-ph": "Иванов Иван Иванович", "form-gender": "Пол", "form-gender-m": "Мужской", "form-gender-f": "Женский",
-                "form-age": "Возраст", "form-weight": "Вес (кг)", "form-phone": "Телефон", "form-agree": "Я согласен на обработку персональных данных согласно", "form-submit": "Отправить заявку",
+                "modal_join_title": "Заявка на вступление", "modal_join_desc": "Заполните форму ниже, и мы свяжемся с вами.",
+                "form_name": "ФИО", "form_name_ph": "Иванов Иван Иванович", "form_gender": "Пол", "form_gender_m": "Мужской", "form_gender_f": "Женский",
+                "form_age": "Возраст", "form_weight": "Вес (кг)", "form_phone": "Телефон", "form_agree": "Я согласен на обработку персональных данных согласно", "form_submit": "Отправить заявку",
                 
-                "modal-rules-title": "Правила соревнований",
-                "modal-rules-text": "<p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику.</p><p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени.</p><p><strong>3. Разрешенные действия:</strong><br>- Удары руками и ногами по корпусу и ногам.<br>- Броски, сваливания, подсечки.<br>- Болевые и удушающие приемы.</p>",
+                "modal_rules_title": "Правила соревнований",
+                "modal_rules_text": "<p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику.</p><p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени.</p><p><strong>3. Разрешенные действия:</strong><br>- Удары руками и ногами по корпусу и ногам.<br>- Броски, сваливания, подсечки.<br>- Болевые и удушающие приемы.</p>",
 
-                "privacy-title": "Политика обработки данных",
-                "privacy-text": "<p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p><p><strong>1. Цели обработки:</strong> Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований и связи с заявителем.</p><p><strong>2. Объем обрабатываемых данных:</strong> Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно.</p><p><strong>3. Права субъекта данных:</strong> В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование удаления персональных данных.</p>"
+                "privacy_title": "Политика обработки данных",
+                "privacy_text": "<p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p><p><strong>1. Цели обработки:</strong> Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований и связи с заявителем.</p><p><strong>2. Объем обрабатываемых данных:</strong> Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно.</p><p><strong>3. Права субъекта данных:</strong> В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование удаления персональных данных.</p>"
             },
             en: {
-                "nav-title": "PANKRATION FEDERATION BY", "badge-official": "Official Organization",
-                "hero-title": "BELARUSIAN FEDERATION OF <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>PANKRATION</span>",
-                "hero-desc": "Reviving ancient traditions. Raising modern champions. A universal fighting discipline combining striking and wrestling.",
-                "btn-join": "Join Us", "btn-rules": "Rules", "card1-title": "Synthesis of Power",
-                "card1-p1": "Pankration is the legacy of the Ancient Greek Olympic Games (648 BC). Today, it is the foundation of Mixed Martial Arts (MMA).",
-                "card1-p2": "Our mission is the development of the sport in the Republic of Belarus, training world-class athletes.",
-                "board-title": "Federation Presidium", "board-subtitle": "Leadership",
+                "nav_title": "PANKRATION FEDERATION BY", "badge_official": "Official Organization",
+                "hero_title": "BELARUSIAN FEDERATION OF <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>PANKRATION</span>",
+                "hero_desc": "Reviving ancient traditions. Raising modern champions. A universal fighting discipline combining striking and wrestling.",
+                "stat_years": "Years of Exp.", "stat_champs": "Champions", "stat_clubs": "Clubs Nationwide",
+                "btn_join": "Join Us", "btn_rules": "Rules",
                 
-                "lead1-name": "Savchuk A.V.", "lead1-role": "Chairman",
-                "lead2-name": "Ramanau R.S.", "lead2-role": "Exec. Director",
-                "lead3-name": "Shpakovsky V.A.", "lead3-role": "Deputy (Regions)",
-                "lead4-name": "Antsypovich A.N.", "lead4-role": "Deputy (Sports)",
-                "lead5-name": "Bahdanovich A.V.", "lead5-role": "Organization",
-                "lead6-name": "Syulzhyn V.A.", "lead6-role": "Intl. Relations",
+                "board_title": "Federation Presidium", "board_subtitle": "Leadership",
+                "lead1_name": "Savchuk A.V.", "lead1_role": "Chairman",
+                "lead2_name": "Ramanau R.S.", "lead2_role": "Exec. Director",
+                "lead3_name": "Shpakovsky V.A.", "lead3_role": "Deputy (Regions)",
+                "lead4_name": "Antsypovich A.N.", "lead4_role": "Deputy (Sports)",
+                "lead5_name": "Bahdanovich A.V.", "lead5_role": "Organization",
+                "lead6_name": "Syulzhyn V.A.", "lead6_role": "Intl. Relations",
 
-                "partners-title": "Official Partners", "contact-title": "Contact & Resources",
-                "footer-copy": "© 2026 Belarusian Pankration Federation. All rights reserved.", "footer-privacy": "Privacy Policy",
+                "partners_title": "Official Partners", "contact_title": "Contact & Resources",
+                "footer_copy": "© 2026 Belarusian Pankration Federation. All rights reserved.", "footer_privacy": "Privacy Policy",
 
-                "modal-join-title": "Membership Application", "modal-join-desc": "Fill out the form below and we will contact you.",
-                "form-name": "Full Name", "form-name-ph": "John Doe", "form-gender": "Gender", "form-gender-m": "Male", "form-gender-f": "Female",
-                "form-age": "Age", "form-weight": "Weight (kg)", "form-phone": "Phone", "form-agree": "I agree to the processing of personal data according to the", "form-submit": "Submit Application",
+                "modal_join_title": "Membership Application", "modal_join_desc": "Fill out the form below and we will contact you.",
+                "form_name": "Full Name", "form_name_ph": "John Doe", "form_gender": "Gender", "form_gender_m": "Male", "form_gender_f": "Female",
+                "form_age": "Age", "form_weight": "Weight (kg)", "form_phone": "Phone", "form_agree": "I agree to the processing of personal data according to the", "form_submit": "Submit Application",
                 
-                "modal-rules-title": "Competition Rules",
-                "modal-rules-text": "<p><strong>1. General Provisions:</strong> Pankration is a full-contact martial art combining striking and grappling.</p><p><strong>2. Equipment:</strong> Fighters must wear UWW-approved protective gear: headguard (for certain age categories), mouthguard, pankration gloves, groin guard, shin guards.</p><p><strong>3. Allowed Actions:</strong><br>- Punches and kicks to the body and legs.<br>- Throws, takedowns, sweeps.<br>- Chokeholds and joint locks.</p>",
+                "modal_rules_title": "Competition Rules",
+                "modal_rules_text": "<p><strong>1. General Provisions:</strong> Pankration is a full-contact martial art combining striking and grappling.</p><p><strong>2. Equipment:</strong> Fighters must wear UWW-approved protective gear: headguard (for certain age categories), mouthguard, pankration gloves, groin guard, shin guards.</p><p><strong>3. Allowed Actions:</strong><br>- Punches and kicks to the body and legs.<br>- Throws, takedowns, sweeps.<br>- Chokeholds and joint locks.</p>",
 
-                "privacy-title": "Personal Data Processing Policy",
-                "privacy-text": "<p>This Policy is developed in accordance with the Law of the Republic of Belarus dated 07.05.2021 No. 99-Z 'On Personal Data Protection'.</p><p><strong>1. Processing Purposes:</strong> Data is collected solely for registering athletes, organizing competitions, and communication.</p><p><strong>2. Data Scope:</strong> We process: Full Name, gender, age, weight, phone number. Data is provided voluntarily.</p><p><strong>3. Data Subject Rights:</strong> In accordance with Art. 10-14 of Law No. 99-Z, you have the right to: withdraw consent; receive processing information; demand deletion.</p>"
+                "privacy_title": "Personal Data Processing Policy",
+                "privacy_text": "<p>This Policy is developed in accordance with the Law of the Republic of Belarus dated 07.05.2021 No. 99-Z 'On Personal Data Protection'.</p><p><strong>1. Processing Purposes:</strong> Data is collected solely for registering athletes, organizing competitions, and communication.</p><p><strong>2. Data Scope:</strong> We process: Full Name, gender, age, weight, phone number. Data is provided voluntarily.</p><p><strong>3. Data Subject Rights:</strong> In accordance with Art. 10-14 of Law No. 99-Z, you have the right to: withdraw consent; receive processing information; demand deletion.</p>"
             }
         };
 
@@ -526,11 +540,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Language
             document.getElementById('btn-lang-ru').addEventListener('click', () => setLanguage('ru'));
             document.getElementById('btn-lang-en').addEventListener('click', () => setLanguage('en'));
 
-            // Hover Glowing Edges
             document.querySelectorAll('.bento-card').forEach(card => {
                 card.addEventListener('mousemove', e => {
                     const rect = card.getBoundingClientRect();
@@ -539,7 +551,6 @@
                 });
             });
 
-            // Scroll animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
@@ -554,14 +565,13 @@
                 observer.observe(el);
             });
 
-            // Modals
             document.getElementById('btn-join').addEventListener('click', () => openModal('modal-join'));
             document.getElementById('btn-rules').addEventListener('click', () => openModal('modal-rules'));
             document.getElementById('btn-privacy-footer').addEventListener('click', () => openModal('modal-privacy'));
             document.getElementById('btn-privacy-inline').addEventListener('click', (e) => {
                 e.preventDefault();
                 closeModal('modal-join');
-                setTimeout(() => openModal('modal-privacy'), 300); // slight delay for smooth transition
+                setTimeout(() => openModal('modal-privacy'), 300); 
             });
 
             document.querySelectorAll('.btn-close-modal, .modal-bg-close').forEach(btn => {
