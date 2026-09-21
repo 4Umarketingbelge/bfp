@@ -164,6 +164,12 @@
         .marquee-container:hover {
             animation-play-state: paused;
         }
+
+        /* Custom Form Input Styles */
+        select option {
+            background-color: #121212;
+            color: #e5e5e5;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-bpf-gold selection:text-black pb-12">
@@ -175,7 +181,7 @@
             </div>
             <span class="font-heading tracking-wider text-xl hidden sm:block" data-i18n="nav-title">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
         </div>
-        <div class="flex gap-4">
+        <div class="flex gap-4 z-10 relative">
             <button id="btn-lang-ru" class="text-sm font-semibold text-bpf-gold transition-colors duration-200">RU</button>
             <button id="btn-lang-en" class="text-sm font-semibold text-bpf-muted hover:text-white transition-colors duration-200">EN</button>
         </div>
@@ -224,12 +230,12 @@
                         </p>
                     </div>
                     <div class="mt-auto pt-4 border-t border-white/10">
-                        <a href="#" id="btn-more" class="text-bpf-gold hover:text-bpf-goldHover font-heading uppercase text-[clamp(0.75rem,1.5vw,0.875rem)] tracking-wider flex items-center gap-2 group/link">
+                        <button class="text-bpf-gold hover:text-bpf-goldHover font-heading uppercase text-[clamp(0.75rem,1.5vw,0.875rem)] tracking-wider flex items-center gap-2 group/link">
                             <span data-i18n="btn-more">Подробнее</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -292,7 +298,7 @@
                     </div>
                     
                     <div class="grid grid-cols-2 lg:grid-cols-4 gap-[clamp(0.75rem,2vw,1.5rem)]">
-                        <div class="group/person cursor-pointer" id="btn-board-1">
+                        <div class="group/person cursor-pointer">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
@@ -300,7 +306,7 @@
                             <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-volkov">Александр Волков</h4>
                             <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-pres">Президент</p>
                         </div>
-                        <div class="group/person cursor-pointer" id="btn-board-2">
+                        <div class="group/person cursor-pointer">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
@@ -308,7 +314,7 @@
                             <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-kovalev">Михаил Ковалев</h4>
                             <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-vp">Вице-президент</p>
                         </div>
-                        <div class="group/person cursor-pointer" id="btn-board-3">
+                        <div class="group/person cursor-pointer">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
@@ -316,7 +322,7 @@
                             <h4 class="font-heading text-[clamp(1rem,2vw,1.25rem)] text-white mb-1 group-hover/person:text-bpf-gold transition-colors truncate" data-i18n="name-savitsky">Дмитрий Савицкий</h4>
                             <p class="text-[clamp(0.55rem,1.5vw,0.75rem)] text-bpf-muted uppercase tracking-wider font-bold truncate" data-i18n="role-coach">Главный тренер</p>
                         </div>
-                        <div class="group/person cursor-pointer" id="btn-board-4">
+                        <div class="group/person cursor-pointer">
                             <div class="overflow-hidden rounded-xl bg-[#121212] aspect-[3/4] mb-3 border border-white/5 relative">
                                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop')] bg-cover bg-top grayscale group-hover/person:grayscale-0 transition-all duration-500 group-hover/person:scale-105"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/person:opacity-60 transition-opacity"></div>
@@ -373,43 +379,130 @@
                 <div class="bento-content p-[clamp(1.25rem,3vw,2rem)] flex flex-col justify-center h-full">
                     <h3 class="font-heading text-[clamp(1.25rem,3vw,1.5rem)] text-white mb-[clamp(0.75rem,2vw,1.5rem)]" data-i18n="contact-title">Связь и ресурсы</h3>
                     <div class="flex flex-wrap gap-[clamp(0.5rem,1.5vw,0.75rem)]">
-                        <button id="btn-telegram" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
+                        <button class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
                             Telegram
                         </button>
-                        <button id="btn-instagram" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
+                        <button class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center">
                             Instagram
                         </button>
-                        <button id="btn-docs" class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center" data-i18n="link-docs">
+                        <button class="flex-grow sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-bpf-gold/50 text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2 text-center" data-i18n="link-docs">
                             Документы
                         </button>
-                        <button id="btn-email" class="flex-grow w-full sm:w-auto sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-bpf-gold/10 hover:bg-bpf-gold/20 text-bpf-gold border border-bpf-gold/30 hover:border-bpf-gold text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2">
+                        <button class="flex-grow w-full sm:w-auto sm:flex-grow-0 px-[clamp(0.75rem,2vw,1.25rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-lg bg-bpf-gold/10 hover:bg-bpf-gold/20 text-bpf-gold border border-bpf-gold/30 hover:border-bpf-gold text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-colors flex items-center justify-center gap-2">
                             info@pankration.by
                         </button>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
     <footer class="mt-12 text-center text-bpf-muted text-sm pb-8 max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div data-i18n="footer-copy">© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
         <div class="flex gap-4">
-            <button id="btn-privacy" class="hover:text-white transition-colors" data-i18n="footer-privacy">Политика конфиденциальности</button>
-            <button id="btn-contact-footer" class="hover:text-white transition-colors" data-i18n="footer-contacts">Контакты</button>
+            <button class="hover:text-white transition-colors" data-i18n="footer-privacy">Политика конфиденциальности</button>
+            <button class="hover:text-white transition-colors" data-i18n="footer-contacts">Контакты</button>
         </div>
     </footer>
 
+    <!-- Modal: Join Form -->
+    <div id="modal-join" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <!-- Overlay background for closing -->
+        <div class="absolute inset-0 modal-bg-close"></div>
+        
+        <!-- Modal Content -->
+        <div class="bg-bpf-card/90 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-xl rounded-2xl p-6 md:p-8 w-full max-w-lg relative transform scale-95 transition-transform duration-300 modal-inner">
+            <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <h2 class="font-heading text-2xl text-white mb-2" data-i18n="modal-join-title">Заявка на вступление</h2>
+            <p class="text-bpf-muted text-sm mb-6" data-i18n="modal-join-desc">Заполните форму ниже, и мы свяжемся с вами.</p>
+            
+            <form class="space-y-4" onsubmit="event.preventDefault();">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-name">ФИО</label>
+                    <input type="text" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" data-i18n-placeholder="form-name-ph" placeholder="Иванов Иван Иванович">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-gender">Пол</label>
+                        <select class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-bpf-gold transition-colors appearance-none">
+                            <option value="m" data-i18n="form-gender-m">Мужской</option>
+                            <option value="f" data-i18n="form-gender-f">Женский</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-age">Возраст</label>
+                        <input type="number" min="14" max="99" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="18">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-weight">Вес (кг)</label>
+                        <input type="number" min="40" max="150" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="75">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-bpf-muted font-bold mb-1" data-i18n="form-phone">Телефон</label>
+                        <input type="tel" required class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-bpf-gold transition-colors" placeholder="+375 (XX) XXX-XX-XX">
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full mt-4 bg-bpf-gold hover:bg-bpf-goldHover text-black font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg transition-colors font-heading text-lg" data-i18n="form-submit">
+                    Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Rules -->
+    <div id="modal-rules" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 modal-bg-close"></div>
+        
+        <div class="bg-bpf-card/90 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-xl rounded-2xl p-6 md:p-8 w-full max-w-2xl relative transform scale-95 transition-transform duration-300 modal-inner flex flex-col max-h-[80vh]">
+            <button class="absolute top-4 right-4 text-bpf-muted hover:text-white transition-colors btn-close-modal z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="modal-rules-title">Правила соревнований</h2>
+            
+            <div class="overflow-y-auto pr-4 text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="modal-rules-text">
+                <p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику. Соревнования проводятся на сертифицированном татами или в октагоне.</p>
+                <p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени (опционально в зависимости от дивизиона).</p>
+                <p><strong>3. Разрешенные действия:</strong>
+                   <br>- Удары руками и ногами по корпусу и ногам.
+                   <br>- Броски, сваливания, подсечки.
+                   <br>- Болевые приемы на руки и ноги (за исключением скручивания пятки).
+                   <br>- Удушающие приемы.
+                </p>
+                <p><strong>4. Запрещенные действия:</strong>
+                   <br>- Удары в пах, позвоночник, затылок.
+                   <br>- Тычки в глаза, кусание, царапание.
+                   <br>- Удары коленями в голову в партере.
+                </p>
+                <p><strong>5. Определение победителя:</strong> Победа присуждается досрочно (нокаут, сдача соперника) или по очкам, начисляемым судьями за амплитудные броски, точные удары и контроль в партере.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Dictionary for i18n
         const translations = {
             ru: {
+                // Navigation & Hero
                 "nav-title": "ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ",
                 "badge-official": "Официальная организация",
                 "hero-title": "БЕЛОРУССКАЯ ФЕДЕРАЦИЯ <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>ПАНКРАТИОНА</span>",
                 "hero-desc": "Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.",
                 "btn-join": "Вступить",
                 "btn-rules": "Правила",
+                
+                // Cards
                 "card1-title": "Синтез силы",
                 "card1-p1": "Панкратион — это наследие Олимпийских игр Древней Греции (648 г. до н.э.). Сегодня это фундамент смешанных боевых искусств (MMA).",
                 "card1-p2": "Наша миссия — развитие спорта в Республике Беларусь, подготовка атлетов международного класса.",
@@ -419,10 +512,14 @@
                 "stats-athletes": "Атлетов",
                 "stats-regions": "Регионов",
                 "stats-recognition": "Признание",
+                
+                // Tournament
                 "tourney-badge": "Ближайший турнир",
                 "tourney-title": "Открытый Чемпионат РБ 2026",
                 "tourney-loc": "Минск, РЦОП по единоборствам",
                 "tourney-month": "Ноября",
+                
+                // Board
                 "board-title": "Руководство Федерации",
                 "board-subtitle": "Представители",
                 "name-volkov": "Александр Волков",
@@ -433,6 +530,8 @@
                 "role-vp": "Вице-президент",
                 "role-coach": "Главный тренер",
                 "role-judge": "Судейская коллегия",
+                
+                // Misc
                 "partners-title": "Официальные партнеры",
                 "gallery-title": "Галерея",
                 "gallery-desc": "Фотоотчеты с соревнований",
@@ -440,15 +539,35 @@
                 "link-docs": "Документы",
                 "footer-copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.",
                 "footer-privacy": "Политика конфиденциальности",
-                "footer-contacts": "Контакты"
+                "footer-contacts": "Контакты",
+
+                // Modals (Join Form)
+                "modal-join-title": "Заявка на вступление",
+                "modal-join-desc": "Заполните форму ниже, и мы свяжемся с вами в ближайшее время.",
+                "form-name": "ФИО",
+                "form-name-ph": "Иванов Иван Иванович",
+                "form-gender": "Пол",
+                "form-gender-m": "Мужской",
+                "form-gender-f": "Женский",
+                "form-age": "Возраст",
+                "form-weight": "Вес (кг)",
+                "form-phone": "Телефон",
+                "form-submit": "Отправить заявку",
+                
+                // Modals (Rules)
+                "modal-rules-title": "Правила соревнований",
+                "modal-rules-text": "<p><strong>1. Общие положения:</strong> Панкратион — это полноконтактное единоборство, объединяющее ударную и борцовскую технику. Соревнования проводятся на сертифицированном татами или в октагоне.</p><p><strong>2. Экипировка:</strong> Бойцы обязаны выступать в защитной экипировке, утвержденной UWW: шлем (для определенных возрастных категорий), капа, перчатки для панкратиона (шингарты), защита паха, защита голени (опционально в зависимости от дивизиона).</p><p><strong>3. Разрешенные действия:</strong><br>- Удары руками и ногами по корпусу и ногам.<br>- Броски, сваливания, подсечки.<br>- Болевые приемы на руки и ноги (за исключением скручивания пятки).<br>- Удушающие приемы.</p><p><strong>4. Запрещенные действия:</strong><br>- Удары в пах, позвоночник, затылок.<br>- Тычки в глаза, кусание, царапание.<br>- Удары коленями в голову в партере.</p><p><strong>5. Определение победителя:</strong> Победа присуждается досрочно (нокаут, сдача соперника) или по очкам, начисляемым судьями за амплитудные броски, точные удары и контроль в партере.</p>"
             },
             en: {
+                // Navigation & Hero
                 "nav-title": "PANKRATION FEDERATION BY",
                 "badge-official": "Official Organization",
                 "hero-title": "BELARUSIAN FEDERATION OF <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>PANKRATION</span>",
                 "hero-desc": "Reviving ancient traditions. Raising modern champions. A universal fighting discipline combining striking and wrestling.",
                 "btn-join": "Join Us",
                 "btn-rules": "Rules",
+                
+                // Cards
                 "card1-title": "Synthesis of Power",
                 "card1-p1": "Pankration is the legacy of the Ancient Greek Olympic Games (648 BC). Today, it is the foundation of Mixed Martial Arts (MMA).",
                 "card1-p2": "Our mission is the development of the sport in the Republic of Belarus, training world-class athletes.",
@@ -458,10 +577,14 @@
                 "stats-athletes": "Athletes",
                 "stats-regions": "Regions",
                 "stats-recognition": "Recognition",
+                
+                // Tournament
                 "tourney-badge": "Upcoming Tournament",
                 "tourney-title": "Open Championship BY 2026",
                 "tourney-loc": "Minsk, Olympic Martial Arts Center",
                 "tourney-month": "November",
+                
+                // Board
                 "board-title": "Federation Board",
                 "board-subtitle": "Representatives",
                 "name-volkov": "Alexander Volkov",
@@ -472,6 +595,8 @@
                 "role-vp": "Vice President",
                 "role-coach": "Head Coach",
                 "role-judge": "Judging Panel",
+                
+                // Misc
                 "partners-title": "Official Partners",
                 "gallery-title": "Gallery",
                 "gallery-desc": "Tournament Photo Reports",
@@ -479,16 +604,41 @@
                 "link-docs": "Documents",
                 "footer-copy": "© 2026 Belarusian Pankration Federation. All rights reserved.",
                 "footer-privacy": "Privacy Policy",
-                "footer-contacts": "Contacts"
+                "footer-contacts": "Contacts",
+
+                // Modals (Join Form)
+                "modal-join-title": "Membership Application",
+                "modal-join-desc": "Fill out the form below and we will contact you shortly.",
+                "form-name": "Full Name",
+                "form-name-ph": "John Doe",
+                "form-gender": "Gender",
+                "form-gender-m": "Male",
+                "form-gender-f": "Female",
+                "form-age": "Age",
+                "form-weight": "Weight (kg)",
+                "form-phone": "Phone",
+                "form-submit": "Submit Application",
+                
+                // Modals (Rules)
+                "modal-rules-title": "Competition Rules",
+                "modal-rules-text": "<p><strong>1. General Provisions:</strong> Pankration is a full-contact martial art combining striking and grappling. Competitions are held on certified mats or in an octagon.</p><p><strong>2. Equipment:</strong> Fighters must wear UWW-approved protective gear: headguard (for certain age categories), mouthguard, pankration gloves, groin guard, shin guards (optional depending on division).</p><p><strong>3. Allowed Actions:</strong><br>- Punches and kicks to the body and legs.<br>- Throws, takedowns, sweeps.<br>- Joint locks on arms and legs (excluding heel hooks).<br>- Chokeholds.</p><p><strong>4. Forbidden Actions:</strong><br>- Strikes to the groin, spine, back of the head.<br>- Eye pokes, biting, scratching.<br>- Knee strikes to the head on the ground.</p><p><strong>5. Determining the Winner:</strong> Victory is awarded early (knockout, submission) or on points scored by judges for amplitude throws, accurate strikes, and ground control.</p>"
             }
         };
 
         function setLanguage(lang) {
-            // Update Text Elements
+            // Update standard HTML content
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update Input Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.setAttribute('placeholder', translations[lang][key]);
                 }
             });
 
@@ -506,20 +656,42 @@
                 btnEn.className = activeClass;
                 btnRu.className = inactiveClass;
             }
+        }
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            const inner = modal.querySelector('.modal-inner');
             
-            // Re-trigger text clamp recalculations if needed by browser
-            document.body.style.display = 'none';
-            document.body.offsetHeight; // trigger reflow
-            document.body.style.display = '';
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+            
+            inner.classList.remove('scale-95');
+            inner.classList.add('scale-100');
+            
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            const inner = modal.querySelector('.modal-inner');
+            
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            
+            inner.classList.remove('scale-100');
+            inner.classList.add('scale-95');
+            
+            document.body.style.overflow = ''; // Restore background scrolling
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Language Toggle Event Listeners
+            // Language Listeners
             document.getElementById('btn-lang-ru').addEventListener('click', () => setLanguage('ru'));
             document.getElementById('btn-lang-en').addEventListener('click', () => setLanguage('en'));
 
-            // 2. Mouse Tracking Effect for Bento Cards
+            // Hover Tracking
             const cards = document.querySelectorAll('.bento-card');
             cards.forEach(card => {
                 card.addEventListener('mousemove', e => {
@@ -531,7 +703,7 @@
                 });
             });
 
-            // 3. Scroll Reveal Animation
+            // Scroll animations
             const animatedElements = document.querySelectorAll('.stagger-enter');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
@@ -549,14 +721,26 @@
                 el.style.transitionDelay = `${(index % 4) * 100}ms`;
                 observer.observe(el);
             });
-            
-            // Console logs for button placeholders (Ready for your backend/modals)
-            const logAction = (name) => console.log(`Action trigger: ${name} clicked.`);
-            document.getElementById('btn-join').addEventListener('click', () => logAction('Join Federation'));
-            document.getElementById('btn-rules').addEventListener('click', () => logAction('Read Rules'));
-            document.getElementById('btn-more').addEventListener('click', () => logAction('Learn More'));
-            document.getElementById('btn-gallery').addEventListener('click', () => logAction('Open Gallery'));
-            // And so on for other buttons...
+
+            // Modal Triggers
+            document.getElementById('btn-join').addEventListener('click', () => openModal('modal-join'));
+            document.getElementById('btn-rules').addEventListener('click', () => openModal('modal-rules'));
+
+            // Modal Close Buttons
+            document.querySelectorAll('.btn-close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.fixed');
+                    closeModal(modal.id);
+                });
+            });
+
+            // Click outside to close modal
+            document.querySelectorAll('.modal-bg-close').forEach(bg => {
+                bg.addEventListener('click', function() {
+                    const modal = this.closest('.fixed');
+                    closeModal(modal.id);
+                });
+            });
         });
     </script>
 </body>
