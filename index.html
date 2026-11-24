@@ -222,12 +222,12 @@
                         <div class="snap-item w-[85%] sm:w-[45%] md:w-[30%] shrink-0 bg-black/40 border border-white/5 rounded-xl p-5 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                             <div class="flex justify-between items-start mb-4">
                                 <span class="px-2 py-1 bg-white/10 text-white/50 text-[10px] uppercase font-bold rounded tracking-wider" data-i18n="status_past">Прошедший</span>
-                                <span class="text-white/50 text-xs font-bold" data-i18n="date_t1">Окт 2023</span>
+                                <span class="text-white/50 text-xs font-bold" data-i18n="date_t1">13–15 Ноя 2026</span>
                             </div>
-                            <h4 class="font-heading text-lg text-white mb-1" data-i18n="name_t1">Кубок Минска</h4>
+                            <h4 class="font-heading text-lg text-white mb-1" data-i18n="name_t1">11 чемпионат мира</h4>
                             <p class="text-xs text-bpf-muted flex items-center gap-1">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <span data-i18n="loc_t1">Минск, Арена</span>
+                                <span data-i18n="loc_t1">Греция, г. Патра</span>
                             </p>
                         </div>
 
@@ -273,43 +273,77 @@
                 </div>
             </div>
 
-            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-12 relative h-[300px] sm:h-[400px]">
-                <div class="absolute top-6 left-6 z-20">
-                    <h3 class="font-heading text-white text-xl sm:text-2xl drop-shadow-md" data-i18n="gallery_title">Галерея</h3>
-                </div>
-                
-                <div class="absolute top-4 right-6 z-20 flex gap-2">
-                    <button class="g-slider-prev w-10 h-10 rounded-full bg-black/60 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-bpf-gold hover:text-black transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    </button>
-                    <button class="g-slider-next w-10 h-10 rounded-full bg-black/60 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-bpf-gold hover:text-black transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                </div>
-
-                <div class="bento-content w-full h-full p-3 pt-20">
-                    <div id="gallery-container" class="snap-slider flex w-full h-full gap-4 overflow-x-auto pb-4 scroll-smooth">
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 1">
+            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-12">
+                <div class="bento-content p-6 sm:p-8">
+                    <div class="flex items-start justify-between gap-4 mb-5 border-b border-white/10 pb-4">
+                        <div class="min-w-0">
+                            <h3 class="font-heading text-white text-xl sm:text-2xl mb-2" data-i18n="gallery_title">Галерея</h3>
+                            <div class="inline-flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+                                <span class="text-bpf-gold font-bold uppercase tracking-wider" data-i18n="album_patras2026">11 чемпионат мира. Греция. г. Патра, 13-15/11/2026</span>
+                                <span class="text-bpf-muted whitespace-nowrap">· 17 <span data-i18n="photos_label">фото</span></span>
+                            </div>
                         </div>
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1591117207239-788bf8de6c3b?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 2">
+                        <div class="flex gap-2 shrink-0">
+                            <button class="g-slider-prev w-10 h-10 rounded-full bg-black/60 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-bpf-gold hover:text-black transition-colors" aria-label="Назад">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button class="g-slider-next w-10 h-10 rounded-full bg-black/60 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-bpf-gold hover:text-black transition-colors" aria-label="Вперёд">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
                         </div>
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1517436073-3b1b16d9a1c4?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 3">
-                        </div>
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1564415315949-2708b7d995f5?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 4">
-                        </div>
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1614632537197-38a4705f46c6?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 5">
-                        </div>
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1599552375245-ba37fdbbf93a?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 6">
-                        </div>
-                        <div class="snap-item relative w-[85%] sm:w-[45%] md:w-[30%] shrink-0 h-full rounded-xl overflow-hidden group border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1611162458324-aae4741496cc?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MMA 7">
-                        </div>
+                    </div>
+                    <div id="gallery-container" class="snap-slider flex gap-4 overflow-x-auto pb-4 scroll-smooth h-[280px] sm:h-[380px]">
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="0">
+                            <img src="img/gallery/patras-2026/01.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 1">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="1">
+                            <img src="img/gallery/patras-2026/02.jpg" width="800" height="600" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 2">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="2">
+                            <img src="img/gallery/patras-2026/03.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 3">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="3">
+                            <img src="img/gallery/patras-2026/04.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 4">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="4">
+                            <img src="img/gallery/patras-2026/05.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 5">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="5">
+                            <img src="img/gallery/patras-2026/06.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 6">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="6">
+                            <img src="img/gallery/patras-2026/07.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 7">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="7">
+                            <img src="img/gallery/patras-2026/08.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 8">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="8">
+                            <img src="img/gallery/patras-2026/09.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 9">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="9">
+                            <img src="img/gallery/patras-2026/10.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 10">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="10">
+                            <img src="img/gallery/patras-2026/11.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 11">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="11">
+                            <img src="img/gallery/patras-2026/12.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 12">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="12">
+                            <img src="img/gallery/patras-2026/13.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 13">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="13">
+                            <img src="img/gallery/patras-2026/14.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 14">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="14">
+                            <img src="img/gallery/patras-2026/15.jpg" width="800" height="600" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 15">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="15">
+                            <img src="img/gallery/patras-2026/16.jpg" width="800" height="600" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 16">
+                        </button>
+                        <button type="button" class="gallery-photo snap-item relative h-full shrink-0 rounded-xl overflow-hidden group border border-white/10 hover:border-bpf-gold transition-colors bg-black" data-index="16">
+                            <img src="img/gallery/patras-2026/17.jpg" width="600" height="800" loading="lazy" class="h-full w-auto max-w-none transition-transform duration-700 group-hover:scale-105" alt="11 чемпионат мира по панкратиону, Патра — фото 17">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -323,48 +357,55 @@
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
-                        <div class="group/person text-center cursor-pointer">
+                    <div class="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-6">
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
                             <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Иванов И.И." class="w-full h-full object-cover grayscale opacity-90 group-hover/person:grayscale-0 group-hover/person:opacity-100 transition-all duration-500 group-hover/person:scale-105">
+                                <img src="img/board/denisenko.jpg" alt="Денисенко Вадим Иванович" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead1_name">Иванов И.И.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead1_role">Председатель</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead1_name">Денисенко<br>Вадим Иванович</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead1_role">Председатель</p>
                         </div>
-                        <div class="group/person text-center cursor-pointer">
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
                             <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Смирнов А.С." class="w-full h-full object-cover grayscale opacity-90 group-hover/person:grayscale-0 group-hover/person:opacity-100 transition-all duration-500 group-hover/person:scale-105">
+                                <img src="img/board/beluga.jpg" alt="Белуга Валерий Федорович" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead2_name">Смирнов А.С.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead2_role">Исполн. директор</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead2_name">Белуга<br>Валерий Федорович</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead2_role">Заместитель председателя, член республиканского президиума</p>
                         </div>
-                        <div class="group/person text-center cursor-pointer">
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
                             <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Петров В.В." class="w-full h-full object-cover grayscale opacity-90 group-hover/person:grayscale-0 group-hover/person:opacity-100 transition-all duration-500 group-hover/person:scale-105">
+                                <img src="img/board/sobol.jpg" alt="Соболь Дмитрий Владимирович" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead3_name">Петров В.В.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead3_role">Зам. по регионам</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead3_name">Соболь<br>Дмитрий Владимирович</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead3_role">Член республиканского президиума</p>
                         </div>
-                        <div class="group/person text-center cursor-pointer">
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
                             <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
-                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Соколов Д.Д." class="w-full h-full object-cover grayscale opacity-90 group-hover/person:grayscale-0 group-hover/person:opacity-100 transition-all duration-500 group-hover/person:scale-105">
+                                <img src="img/board/elfimov.jpg" alt="Елфимов Алексей Борисович" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead4_name">Соколов Д.Д.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead4_role">Зам. по спорту</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead4_name">Елфимов<br>Алексей Борисович</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead4_role">Член республиканского президиума</p>
                         </div>
-                        <div class="group/person text-center cursor-pointer">
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
                             <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Волков М.М." class="w-full h-full object-cover grayscale opacity-90 group-hover/person:grayscale-0 group-hover/person:opacity-100 transition-all duration-500 group-hover/person:scale-105">
+                                <img src="img/board/gabrov.jpg" alt="Габров Владимир Васильевич" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead5_name">Волков М.М.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead5_role">Орг. вопросы</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead5_name">Габров<br>Владимир Васильевич</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead5_role">Член республиканского президиума</p>
                         </div>
-                        <div class="group/person text-center cursor-pointer">
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
                             <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Морозов Е.Е." class="w-full h-full object-cover grayscale opacity-90 group-hover/person:grayscale-0 group-hover/person:opacity-100 transition-all duration-500 group-hover/person:scale-105">
+                                <img src="img/board/maksimenko.jpg" alt="Максименко Александр Николаевич" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
                             </div>
-                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 group-hover/person:text-bpf-gold transition-colors" data-i18n="lead6_name">Морозов Е.Е.</h4>
-                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold" data-i18n="lead6_role">Межд. отношения</p>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead6_name">Максименко<br>Александр Николаевич</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead6_role">Член республиканского президиума</p>
+                        </div>
+                        <div class="group/person text-center w-[calc(50%-12px)] sm:w-[160px] lg:w-[136px] xl:w-[160px]">
+                            <div class="overflow-hidden rounded-xl bg-black aspect-[3/4] mb-4 border border-white/10 relative mx-auto w-full max-w-[160px] shadow-lg transition-colors duration-500 group-hover/person:border-bpf-gold">
+                                <img src="img/board/andreev.jpg" alt="Андреев Сергей Анатольевич" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/person:scale-105">
+                            </div>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover/person:text-bpf-gold transition-colors" data-i18n="lead7_name">Андреев<br>Сергей Анатольевич</h4>
+                            <p class="text-[10px] sm:text-xs text-bpf-muted uppercase tracking-wider font-bold leading-snug" data-i18n="lead7_role">Председатель ревизионной комиссии</p>
                         </div>
                     </div>
                 </div>
@@ -414,6 +455,23 @@
     </main>
 
     <!-- Modal: Join Form -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-opacity duration-300" aria-hidden="true">
+        <div class="absolute top-4 left-4 right-20 text-xs sm:text-sm">
+            <span class="text-bpf-gold font-bold uppercase tracking-wider" data-i18n="album_patras2026">11 чемпионат мира. Греция. г. Патра, 13-15/11/2026</span>
+            <span id="lb-counter" class="text-bpf-muted ml-2"></span>
+        </div>
+        <button id="lb-close" class="absolute top-3 right-3 w-11 h-11 rounded-full bg-white/10 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors" aria-label="Закрыть">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <button id="lb-prev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors z-10" aria-label="Предыдущее фото">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <img id="lb-img" src="" alt="" class="max-h-[85vh] max-w-[92vw] object-contain rounded-lg shadow-2xl select-none">
+        <button id="lb-next" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors z-10" aria-label="Следующее фото">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
     <div id="modal-join" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="absolute inset-0 modal-bg-close"></div>
         <div class="bg-bpf-card/95 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] rounded-2xl p-6 md:p-8 w-full max-w-lg relative transform scale-95 transition-transform duration-300 modal-inner">
@@ -517,18 +575,19 @@
                 "btn_join": "Вступить сейчас", "btn_rules": "Правила спорта",
                 "tourney_title": "Расписание турниров",
                 "status_past": "Прошедший", "status_reg": "Регистрация", "status_upcoming": "Скоро",
-                "date_t1": "Окт 2023", "name_t1": "Кубок Минска", "loc_t1": "Минск, Арена",
+                "date_t1": "13–15 Ноя 2026", "name_t1": "11 чемпионат мира", "loc_t1": "Греция, г. Патра",
                 "date_t2": "Ноя 2026", "name_t2": "Чемпионат РБ", "loc_t2": "Брест, СК \"Виктория\"",
                 "date_t3": "Янв 2027", "name_t3": "Pankration Elite Cup", "loc_t3": "Гомель",
                 "date_t4": "Мар 2027", "name_t4": "Кубок UWW", "loc_t4": "Минск",
-                "gallery_title": "Галерея",
+                "gallery_title": "Галерея", "album_patras2026": "11 чемпионат мира. Греция. г. Патра, 13-15/11/2026", "photos_label": "фото",
                 "board_title": "Президиум Федерации", "board_subtitle": "Руководство",
-                "lead1_name": "Иванов И.И.", "lead1_role": "Председатель",
-                "lead2_name": "Смирнов А.С.", "lead2_role": "Исполн. директор",
-                "lead3_name": "Петров В.В.", "lead3_role": "Зам. по регионам",
-                "lead4_name": "Соколов Д.Д.", "lead4_role": "Зам. по спорту",
-                "lead5_name": "Волков М.М.", "lead5_role": "Орг. вопросы",
-                "lead6_name": "Морозов Е.Е.", "lead6_role": "Межд. отношения",
+                "lead1_name": "Денисенко<br>Вадим Иванович", "lead1_role": "Председатель",
+                "lead2_name": "Белуга<br>Валерий Федорович", "lead2_role": "Заместитель председателя, член республиканского президиума",
+                "lead3_name": "Соболь<br>Дмитрий Владимирович", "lead3_role": "Член республиканского президиума",
+                "lead4_name": "Елфимов<br>Алексей Борисович", "lead4_role": "Член республиканского президиума",
+                "lead5_name": "Габров<br>Владимир Васильевич", "lead5_role": "Член республиканского президиума",
+                "lead6_name": "Максименко<br>Александр Николаевич", "lead6_role": "Член республиканского президиума",
+                "lead7_name": "Андреев<br>Сергей Анатольевич", "lead7_role": "Председатель ревизионной комиссии",
                 "partners_title": "Официальные партнеры", "contact_title": "Медиа ресурсы",
                 "footer_copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.", "footer_privacy": "Политика конфиденциальности",
                 "modal_join_title": "Заявка на вступление", "modal_join_desc": "Заполните форму ниже, и мы свяжемся с вами.",
@@ -548,18 +607,19 @@
                 "btn_join": "Join Now", "btn_rules": "Sport Rules",
                 "tourney_title": "Tournaments Schedule",
                 "status_past": "Completed", "status_reg": "Registration", "status_upcoming": "Upcoming",
-                "date_t1": "Oct 2023", "name_t1": "Minsk Cup", "loc_t1": "Minsk Arena",
+                "date_t1": "13–15 Nov 2026", "name_t1": "11th World Championship", "loc_t1": "Patras, Greece",
                 "date_t2": "Nov 2026", "name_t2": "BY Championship", "loc_t2": "Brest, Victoria SC",
                 "date_t3": "Jan 2027", "name_t3": "Pankration Elite Cup", "loc_t3": "Gomel",
                 "date_t4": "Mar 2027", "name_t4": "UWW Cup", "loc_t4": "Minsk",
-                "gallery_title": "Gallery",
+                "gallery_title": "Gallery", "album_patras2026": "11th World Championship. Greece, Patras, 13-15/11/2026", "photos_label": "photos",
                 "board_title": "Federation Presidium", "board_subtitle": "Leadership",
-                "lead1_name": "Ivanov I.I.", "lead1_role": "Chairman",
-                "lead2_name": "Smirnov A.S.", "lead2_role": "Exec. Director",
-                "lead3_name": "Petrov V.V.", "lead3_role": "Deputy (Regions)",
-                "lead4_name": "Sokolov D.D.", "lead4_role": "Deputy (Sports)",
-                "lead5_name": "Volkov M.M.", "lead5_role": "Organization",
-                "lead6_name": "Morozov E.E.", "lead6_role": "Intl. Relations",
+                "lead1_name": "Denisenko<br>Vadim Ivanovich", "lead1_role": "Chairman",
+                "lead2_name": "Beluga<br>Valery Fedorovich", "lead2_role": "Deputy Chairman, Member of the Republican Presidium",
+                "lead3_name": "Sobol<br>Dmitry Vladimirovich", "lead3_role": "Member of the Republican Presidium",
+                "lead4_name": "Elfimov<br>Alexey Borisovich", "lead4_role": "Member of the Republican Presidium",
+                "lead5_name": "Gabrov<br>Vladimir Vasilyevich", "lead5_role": "Member of the Republican Presidium",
+                "lead6_name": "Maksimenko<br>Alexander Nikolaevich", "lead6_role": "Member of the Republican Presidium",
+                "lead7_name": "Andreev<br>Sergey Anatolyevich", "lead7_role": "Chairman of the Audit Commission",
                 "partners_title": "Official Partners", "contact_title": "Media Resources",
                 "footer_copy": "© 2026 Belarusian Pankration Federation. All rights reserved.", "footer_privacy": "Privacy Policy",
                 "modal_join_title": "Membership Application", "modal_join_desc": "Fill out the form below and we will contact you.",
@@ -670,6 +730,51 @@
             // Setup Sliders
             setupSliderControls('tourney-container', 't-slider-prev', 't-slider-next');
             setupSliderControls('gallery-container', 'g-slider-prev', 'g-slider-next');
+
+            // Gallery lightbox
+            const lb = document.getElementById('gallery-lightbox');
+            const lbImg = document.getElementById('lb-img');
+            const lbCounter = document.getElementById('lb-counter');
+            const gPhotos = [...document.querySelectorAll('#gallery-container .gallery-photo img')];
+            let gIdx = 0;
+            const lbShow = (i) => {
+                gIdx = (i + gPhotos.length) % gPhotos.length;
+                lbImg.src = gPhotos[gIdx].src;
+                lbImg.alt = gPhotos[gIdx].alt;
+                lbCounter.textContent = (gIdx + 1) + ' / ' + gPhotos.length;
+            };
+            const lbOpen = (i) => {
+                lbShow(i);
+                lb.classList.remove('opacity-0', 'pointer-events-none');
+                lb.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            };
+            const lbClose = () => {
+                lb.classList.add('opacity-0', 'pointer-events-none');
+                lb.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            };
+            document.querySelectorAll('#gallery-container .gallery-photo').forEach(btn => {
+                btn.addEventListener('click', () => lbOpen(+btn.dataset.index));
+            });
+            document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); lbShow(gIdx - 1); });
+            document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); lbShow(gIdx + 1); });
+            document.getElementById('lb-close').addEventListener('click', lbClose);
+            lb.addEventListener('click', (e) => { if (e.target === lb) lbClose(); });
+            document.addEventListener('keydown', (e) => {
+                if (lb.classList.contains('pointer-events-none')) return;
+                if (e.key === 'Escape') lbClose();
+                if (e.key === 'ArrowLeft') lbShow(gIdx - 1);
+                if (e.key === 'ArrowRight') lbShow(gIdx + 1);
+            });
+            let touchX = null;
+            lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', (e) => {
+                if (touchX === null) return;
+                const dx = e.changedTouches[0].clientX - touchX;
+                if (Math.abs(dx) > 50) lbShow(gIdx + (dx < 0 ? 1 : -1));
+                touchX = null;
+            });
         });
     </script>
 </body>
