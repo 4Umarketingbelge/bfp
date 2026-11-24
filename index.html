@@ -451,23 +451,65 @@
                     </div>
                 </div>
             </div>
+
+            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-12">
+                <div class="bento-content p-6 sm:p-8">
+                    <div class="mb-6 border-b border-white/10 pb-4">
+                        <span class="text-bpf-gold text-xs tracking-widest uppercase font-bold mb-1 block" data-i18n="docs_subtitle">Официальный статус</span>
+                        <h3 class="font-heading text-2xl sm:text-3xl text-white" data-i18n="docs_title">Аккредитации и членство</h3>
+                    </div>
+                    <div id="docs-container" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                        <button type="button" class="doc-item group text-left" data-index="0" data-full="img/docs/minsport.jpg">
+                            <div class="overflow-hidden rounded-xl bg-white border border-white/10 group-hover:border-bpf-gold transition-colors aspect-[929/1280] mb-3 shadow-lg">
+                                <img src="img/docs/minsport-thumb.jpg" width="400" height="551" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Министерство спорта и туризма РБ">
+                            </div>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover:text-bpf-gold transition-colors" data-i18n="doc1_title">Министерство спорта и туризма РБ</h4>
+                            <p class="text-[11px] sm:text-xs text-bpf-muted leading-snug" data-i18n="doc1_desc">Сертификат о государственной аккредитации · панкратион · до 26.12.2028</p>
+                        </button>
+                        <button type="button" class="doc-item group text-left" data-index="1" data-full="img/docs/dosaaf.jpg">
+                            <div class="overflow-hidden rounded-xl bg-white border border-white/10 group-hover:border-bpf-gold transition-colors aspect-[929/1280] mb-3 shadow-lg">
+                                <img src="img/docs/dosaaf-thumb.jpg" width="400" height="551" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="ДОСААФ Республики Беларусь">
+                            </div>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover:text-bpf-gold transition-colors" data-i18n="doc2_title">ДОСААФ Республики Беларусь</h4>
+                            <p class="text-[11px] sm:text-xs text-bpf-muted leading-snug" data-i18n="doc2_desc">Сертификат о государственной аккредитации · армейский рукопашный бой · до 12.12.2028</p>
+                        </button>
+                        <button type="button" class="doc-item group text-left" data-index="2" data-full="img/docs/wpaf.jpg">
+                            <div class="overflow-hidden rounded-xl bg-white border border-white/10 group-hover:border-bpf-gold transition-colors aspect-[929/1280] mb-3 shadow-lg">
+                                <img src="img/docs/wpaf-thumb.jpg" width="400" height="551" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="World Pangration Athlima Federation">
+                            </div>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover:text-bpf-gold transition-colors" data-i18n="doc3_title">World Pangration Athlima Federation</h4>
+                            <p class="text-[11px] sm:text-xs text-bpf-muted leading-snug" data-i18n="doc3_desc">Подтверждение полноправного членства в W.P.A.F. · 24.11.2025</p>
+                        </button>
+                        <button type="button" class="doc-item group text-left" data-index="3" data-full="img/docs/ancif.jpg">
+                            <div class="overflow-hidden rounded-xl bg-white border border-white/10 group-hover:border-bpf-gold transition-colors aspect-[929/1280] mb-3 shadow-lg">
+                                <img src="img/docs/ancif-thumb.jpg" width="400" height="551" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Международная федерация армейского рукопашного боя">
+                            </div>
+                            <h4 class="font-heading text-sm sm:text-base text-white mb-1 leading-tight group-hover:text-bpf-gold transition-colors" data-i18n="doc4_title">Международная федерация армейского рукопашного боя</h4>
+                            <p class="text-[11px] sm:text-xs text-bpf-muted leading-snug" data-i18n="doc4_desc">Свидетельство о членстве № 002 · официальный представитель в РБ · 09.07.2025</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Modal: Join Form -->
     <div id="gallery-lightbox" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-opacity duration-300" aria-hidden="true">
-        <div class="absolute top-4 left-4 right-20 text-xs sm:text-sm">
-            <span class="text-bpf-gold font-bold uppercase tracking-wider" data-i18n="album_patras2026">11 чемпионат мира. Греция. г. Патра, 13-15/11/2026</span>
-            <span id="lb-counter" class="text-bpf-muted ml-2"></span>
+        <div class="absolute top-3 left-3 max-w-[calc(100%-5rem)] w-fit bg-black/70 rounded-lg px-3 py-2 text-xs sm:text-sm z-10 pointer-events-none">
+            <span id="lb-caption" class="text-bpf-gold font-bold uppercase tracking-wider"></span>
+            <span id="lb-counter" class="text-bpf-muted ml-2 whitespace-nowrap"></span>
+            <span id="lb-hint" class="hidden block sm:inline text-white/60 sm:ml-3 mt-1 sm:mt-0" data-i18n="lb_hint">Нажмите на документ, чтобы увеличить</span>
         </div>
-        <button id="lb-close" class="absolute top-3 right-3 w-11 h-11 rounded-full bg-white/10 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors" aria-label="Закрыть">
+        <button id="lb-close" class="absolute top-3 right-3 z-10 w-11 h-11 rounded-full bg-black/70 border border-white/20 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors" aria-label="Закрыть">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <button id="lb-prev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors z-10" aria-label="Предыдущее фото">
+        <button id="lb-prev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/70 border border-white/20 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors z-10" aria-label="Предыдущее фото">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-        <img id="lb-img" src="" alt="" class="max-h-[85vh] max-w-[92vw] object-contain rounded-lg shadow-2xl select-none">
-        <button id="lb-next" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors z-10" aria-label="Следующее фото">
+        <div id="lb-stage" class="absolute inset-0 overflow-auto flex px-3 pt-16 pb-6 sm:px-20">
+            <img id="lb-img" src="" alt="" class="m-auto shrink-0 rounded-lg shadow-2xl select-none">
+        </div>
+        <button id="lb-next" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/70 border border-white/20 hover:bg-bpf-gold hover:text-black text-white flex items-center justify-center transition-colors z-10" aria-label="Следующее фото">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
     </div>
@@ -579,6 +621,7 @@
                 "date_t2": "Ноя 2026", "name_t2": "Чемпионат РБ", "loc_t2": "Брест, СК \"Виктория\"",
                 "date_t3": "Янв 2027", "name_t3": "Pankration Elite Cup", "loc_t3": "Гомель",
                 "date_t4": "Мар 2027", "name_t4": "Кубок UWW", "loc_t4": "Минск",
+                "lb_hint": "Нажмите на документ, чтобы увеличить", "docs_subtitle": "Официальный статус", "docs_title": "Аккредитации и членство", "doc1_title": "Министерство спорта и туризма РБ", "doc1_desc": "Сертификат о государственной аккредитации · панкратион · до 26.12.2028", "doc2_title": "ДОСААФ Республики Беларусь", "doc2_desc": "Сертификат о государственной аккредитации · армейский рукопашный бой · до 12.12.2028", "doc3_title": "World Pangration Athlima Federation", "doc3_desc": "Подтверждение полноправного членства в W.P.A.F. · 24.11.2025", "doc4_title": "Международная федерация армейского рукопашного боя", "doc4_desc": "Свидетельство о членстве № 002 · официальный представитель в РБ · 09.07.2025",
                 "gallery_title": "Галерея", "album_patras2026": "11 чемпионат мира. Греция. г. Патра, 13-15/11/2026", "photos_label": "фото",
                 "board_title": "Президиум Федерации", "board_subtitle": "Руководство",
                 "lead1_name": "Денисенко<br>Вадим Иванович", "lead1_role": "Председатель",
@@ -611,6 +654,7 @@
                 "date_t2": "Nov 2026", "name_t2": "BY Championship", "loc_t2": "Brest, Victoria SC",
                 "date_t3": "Jan 2027", "name_t3": "Pankration Elite Cup", "loc_t3": "Gomel",
                 "date_t4": "Mar 2027", "name_t4": "UWW Cup", "loc_t4": "Minsk",
+                "lb_hint": "Tap the document to zoom in", "docs_subtitle": "Official status", "docs_title": "Accreditations & Membership", "doc1_title": "Ministry of Sport and Tourism of Belarus", "doc1_desc": "State accreditation certificate · pankration · valid until 26.12.2028", "doc2_title": "DOSAAF of the Republic of Belarus", "doc2_desc": "State accreditation certificate · army hand-to-hand combat · valid until 12.12.2028", "doc3_title": "World Pangration Athlima Federation", "doc3_desc": "Confirmation of full membership in W.P.A.F. · 24.11.2025", "doc4_title": "Army Hand-to-Hand Combat International Federation", "doc4_desc": "Membership certificate No. 002 · official representative in Belarus · 09.07.2025",
                 "gallery_title": "Gallery", "album_patras2026": "11th World Championship. Greece, Patras, 13-15/11/2026", "photos_label": "photos",
                 "board_title": "Federation Presidium", "board_subtitle": "Leadership",
                 "lead1_name": "Denisenko<br>Vadim Ivanovich", "lead1_role": "Chairman",
@@ -731,48 +775,96 @@
             setupSliderControls('tourney-container', 't-slider-prev', 't-slider-next');
             setupSliderControls('gallery-container', 'g-slider-prev', 'g-slider-next');
 
-            // Gallery lightbox
+            // Lightbox (gallery + documents)
             const lb = document.getElementById('gallery-lightbox');
+            const lbStage = document.getElementById('lb-stage');
             const lbImg = document.getElementById('lb-img');
             const lbCounter = document.getElementById('lb-counter');
-            const gPhotos = [...document.querySelectorAll('#gallery-container .gallery-photo img')];
-            let gIdx = 0;
-            const lbShow = (i) => {
-                gIdx = (i + gPhotos.length) % gPhotos.length;
-                lbImg.src = gPhotos[gIdx].src;
-                lbImg.alt = gPhotos[gIdx].alt;
-                lbCounter.textContent = (gIdx + 1) + ' / ' + gPhotos.length;
+            const lbCaption = document.getElementById('lb-caption');
+            const lbHint = document.getElementById('lb-hint');
+            let lbList = [], lbCap = () => '', gIdx = 0, lbDoc = false, lbZoom = false;
+            const docFitWidth = () => Math.min(lbStage.clientWidth - 24, 929);
+            const docZoomWidth = () => window.innerWidth < 768 ? window.innerWidth * 2.4 : 1500;
+            const lbLayout = () => {
+                if (lbDoc) {
+                    lbImg.style.maxWidth = 'none';
+                    lbImg.style.maxHeight = 'none';
+                    lbImg.style.height = 'auto';
+                    lbImg.style.width = (lbZoom ? docZoomWidth() : docFitWidth()) + 'px';
+                    lbImg.style.cursor = lbZoom ? 'zoom-out' : 'zoom-in';
+                } else {
+                    lbImg.style.width = 'auto';
+                    lbImg.style.height = 'auto';
+                    lbImg.style.maxWidth = '92vw';
+                    lbImg.style.maxHeight = '85vh';
+                    lbImg.style.cursor = 'default';
+                }
             };
-            const lbOpen = (i) => {
-                lbShow(i);
+            const lbShow = (i) => {
+                gIdx = (i + lbList.length) % lbList.length;
+                lbZoom = false;
+                lbImg.src = lbList[gIdx].src;
+                lbImg.alt = lbList[gIdx].alt;
+                lbCaption.textContent = lbCap(gIdx);
+                lbCounter.textContent = lbList.length > 1 ? (gIdx + 1) + ' / ' + lbList.length : '';
+                lbLayout();
+                lbStage.scrollTo(0, 0);
+            };
+            const lbOpen = (list, cap, i, isDoc) => {
+                lbList = list; lbCap = cap; lbDoc = !!isDoc;
+                lbHint.classList.toggle('hidden', !lbDoc);
                 lb.classList.remove('opacity-0', 'pointer-events-none');
                 lb.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
+                lbShow(i);
             };
             const lbClose = () => {
                 lb.classList.add('opacity-0', 'pointer-events-none');
                 lb.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
             };
-            document.querySelectorAll('#gallery-container .gallery-photo').forEach(btn => {
-                btn.addEventListener('click', () => lbOpen(+btn.dataset.index));
+            lbImg.addEventListener('click', (e) => {
+                if (!lbDoc) return;
+                const r = lbImg.getBoundingClientRect();
+                const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+                lbZoom = !lbZoom;
+                lbLayout();
+                if (lbZoom) {
+                    const nr = lbImg.getBoundingClientRect();
+                    lbStage.scrollLeft += (nr.left + fx * nr.width) - e.clientX;
+                    lbStage.scrollTop += (nr.top + fy * nr.height) - e.clientY;
+                }
             });
+            window.addEventListener('resize', () => { if (!lb.classList.contains('pointer-events-none')) lbLayout(); });
+            const gList = [...document.querySelectorAll('#gallery-container .gallery-photo img')].map(img => ({ src: img.src, alt: img.alt }));
+            const gCap = () => document.querySelector('[data-i18n="album_patras2026"]').textContent;
+            document.querySelectorAll('#gallery-container .gallery-photo').forEach(btn => {
+                btn.addEventListener('click', () => lbOpen(gList, gCap, +btn.dataset.index, false));
+            });
+            const docBtns = [...document.querySelectorAll('#docs-container .doc-item')];
+            const dList = docBtns.map(btn => ({ src: btn.dataset.full, alt: btn.querySelector('img').alt }));
+            const dCap = (i) => docBtns[i].querySelector('h4').textContent;
+            docBtns.forEach(btn => btn.addEventListener('click', () => lbOpen(dList, dCap, +btn.dataset.index, true)));
             document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); lbShow(gIdx - 1); });
             document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); lbShow(gIdx + 1); });
             document.getElementById('lb-close').addEventListener('click', lbClose);
-            lb.addEventListener('click', (e) => { if (e.target === lb) lbClose(); });
+            lb.addEventListener('click', (e) => { if (e.target === lb || e.target === lbStage) lbClose(); });
             document.addEventListener('keydown', (e) => {
                 if (lb.classList.contains('pointer-events-none')) return;
                 if (e.key === 'Escape') lbClose();
                 if (e.key === 'ArrowLeft') lbShow(gIdx - 1);
                 if (e.key === 'ArrowRight') lbShow(gIdx + 1);
             });
-            let touchX = null;
-            lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+            let touchX = null, touchY = null;
+            lb.addEventListener('touchstart', (e) => {
+                if (e.touches.length !== 1) { touchX = null; return; }
+                touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+            }, { passive: true });
             lb.addEventListener('touchend', (e) => {
-                if (touchX === null) return;
+                if (touchX === null || lbZoom) { touchX = null; return; }
                 const dx = e.changedTouches[0].clientX - touchX;
-                if (Math.abs(dx) > 50) lbShow(gIdx + (dx < 0 ? 1 : -1));
+                const dy = e.changedTouches[0].clientY - touchY;
+                if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) lbShow(gIdx + (dx < 0 ? 1 : -1));
                 touchX = null;
             });
         });
