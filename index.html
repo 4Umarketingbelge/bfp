@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Белорусская Федерация Панкратиона</title>
+    <title>МСОО «БЕЛОРУССКАЯ ФЕДЕРАЦИЯ АРМЕЙСКОГО РУКОПАШНОГО БОЯ И СОВРЕМЕННОГО ПАНКРАТИОНА»</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,9 +135,9 @@
 </head>
 <body class="antialiased selection:bg-bpf-gold selection:text-black">
 
-    <nav class="relative w-full px-6 py-8 flex justify-between items-center max-w-[1400px] mx-auto">
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" title="Республика Беларусь">
-            <svg class="w-14 h-7 sm:w-20 sm:h-10 rounded-[3px] shadow-[0_0_18px_rgba(200,49,62,0.35)] ring-1 ring-white/15" viewBox="0 0 1200 600" role="img" aria-label="Флаг Республики Беларусь">
+    <nav class="relative w-full px-6 py-6 lg:py-5 flex justify-between items-center max-w-[1400px] mx-auto">
+        <a href="#" class="flex items-center gap-3 sm:gap-4 min-w-0 mr-4" aria-label="На главную">
+            <svg class="w-12 h-6 sm:w-16 sm:h-8 rounded-[3px] shadow-[0_0_16px_rgba(200,49,62,0.3)] ring-1 ring-white/15 shrink-0" viewBox="0 0 1200 600" role="img" aria-label="Флаг Республики Беларусь">
                 <defs>
                     <pattern id="by-ornament" x="0" y="0" width="133" height="150" patternUnits="userSpaceOnUse">
                         <rect width="133" height="150" fill="#fff"/>
@@ -154,13 +154,9 @@
                 <rect y="400" width="1200" height="200" fill="#4AA657"/>
                 <rect width="133" height="600" fill="url(#by-ornament)"/>
             </svg>
-        </div>
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-black border border-bpf-gold/30 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <span class="font-heading text-bpf-gold text-xl font-bold">БФП</span>
-            </div>
-            <span class="font-heading tracking-widest text-xl hidden lg:block font-medium" data-i18n="nav_title">ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ</span>
-        </div>
+            <span class="w-px self-stretch bg-gradient-to-b from-transparent via-bpf-gold/50 to-transparent shrink-0"></span>
+            <span class="font-heading uppercase font-medium tracking-[0.06em] sm:tracking-[0.08em] leading-[1.25] text-[10px] sm:text-[12px] xl:text-[14px] min-w-0" data-i18n="nav_title"><span class='block text-white'>МСОО «Белорусская федерация армейского рукопашного боя</span><span class='block text-bpf-gold'>и современного панкратиона»</span></span>
+        </a>
         <div class="flex gap-2 bg-white/5 p-1 rounded-lg border border-white/10 z-10">
             <button id="btn-lang-ru" class="text-xs font-bold text-black bg-bpf-gold px-3 py-1.5 rounded transition-colors duration-200 uppercase">RU</button>
             <button id="btn-lang-en" class="text-xs font-bold text-bpf-muted hover:text-white px-3 py-1.5 rounded transition-colors duration-200 uppercase bg-transparent">EN</button>
@@ -168,9 +164,9 @@
     </nav>
 
     <main class="px-4 sm:px-6 max-w-[1400px] mx-auto pb-16">
-        <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4 sm:gap-6 auto-rows-[minmax(180px,auto)]">
+        <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4 sm:gap-6">
             
-            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-8 row-span-2 group min-h-[400px] sm:min-h-[450px]">
+            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-8 row-span-2 group min-h-[400px] sm:min-h-[440px] lg:min-h-[400px] xl:min-h-[420px]">
                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599552375245-ba37fdbbf93a?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-transparent"></div>
                 
@@ -204,31 +200,31 @@
             </div>
 
             <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-12">
-                <div class="bento-content p-6 flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left h-full">
-                    <div class="w-full sm:w-1/4 border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0">
+                <div class="bento-content px-6 py-5 flex flex-col sm:flex-row items-center gap-5 sm:gap-10 text-center sm:text-left h-full">
+                    <div class="w-full sm:w-auto sm:shrink-0 sm:pr-10 border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0">
                         <h3 class="font-heading text-bpf-muted text-sm tracking-widest uppercase mb-1" data-i18n="stat_header">Федерация в цифрах</h3>
                         <p class="text-white text-xs" data-i18n="stat_sub">Официальная статистика</p>
                     </div>
-                    <div class="w-full sm:w-3/4 flex justify-around items-center">
+                    <div class="w-full sm:flex-1 flex justify-around sm:justify-evenly items-center max-w-3xl sm:mx-auto">
                         <div>
-                            <div class="font-heading text-4xl text-bpf-gold font-bold">12+</div>
+                            <div class="font-heading text-3xl lg:text-4xl text-bpf-gold font-bold leading-none">12+</div>
                             <div class="text-[10px] sm:text-xs text-bpf-text uppercase tracking-wider font-bold mt-1" data-i18n="stat_clubs">Клубов</div>
                         </div>
                         <div>
-                            <div class="font-heading text-4xl text-bpf-gold font-bold">45+</div>
+                            <div class="font-heading text-3xl lg:text-4xl text-bpf-gold font-bold leading-none">45+</div>
                             <div class="text-[10px] sm:text-xs text-bpf-text uppercase tracking-wider font-bold mt-1" data-i18n="stat_tournaments">Турниров</div>
                         </div>
                         <div>
-                            <div class="font-heading text-4xl text-bpf-gold font-bold">320+</div>
+                            <div class="font-heading text-3xl lg:text-4xl text-bpf-gold font-bold leading-none">320+</div>
                             <div class="text-[10px] sm:text-xs text-bpf-text uppercase tracking-wider font-bold mt-1" data-i18n="stat_medals">Медалей</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-12 relative min-h-[280px]">
+            <div class="bento-card stagger-enter col-span-1 md:col-span-6 lg:col-span-12 relative">
                 <div class="bento-content p-6 flex flex-col h-full">
-                    <div class="flex justify-between items-center mb-6">
+                    <div class="flex justify-between items-center mb-4">
                         <h3 class="font-heading text-white text-xl sm:text-2xl" data-i18n="tourney_title">Расписание турниров</h3>
                         <div class="flex gap-2">
                             <button class="t-slider-prev w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-bpf-gold hover:text-black transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
@@ -611,6 +607,7 @@
             <h2 class="font-heading text-2xl text-white mb-4 border-b border-white/10 pb-4" data-i18n="privacy_title">Политика обработки данных</h2>
             <div class="modal-body-scroll text-bpf-text text-sm leading-relaxed space-y-4 font-body" data-i18n="privacy_text">
                 <p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p>
+                <p><strong>Оператор персональных данных:</strong> МСОО «БЕЛОРУССКАЯ ФЕДЕРАЦИЯ АРМЕЙСКОГО РУКОПАШНОГО БОЯ И СОВРЕМЕННОГО ПАНКРАТИОНА», УНП 805003553, 220056, г. Минск, пр-т Независимости, д. 196, комн. 18.</p>
                 <p><strong>1. Цели обработки:</strong> Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований и связи с заявителем.</p>
                 <p><strong>2. Объем обрабатываемых данных:</strong> Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно.</p>
                 <p><strong>3. Права субъекта данных:</strong> В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование удаления персональных данных.</p>
@@ -619,7 +616,7 @@
     </div>
 
     <footer class="text-center text-bpf-muted text-sm pb-8 max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div data-i18n="footer_copy">© 2026 Белорусская Федерация Панкратиона. Все права защищены.</div>
+        <div data-i18n="footer_copy">© 2026 МСОО «БЕЛОРУССКАЯ ФЕДЕРАЦИЯ АРМЕЙСКОГО РУКОПАШНОГО БОЯ И СОВРЕМЕННОГО ПАНКРАТИОНА». Все права защищены.</div>
         <div class="flex gap-4">
             <button id="btn-privacy-footer" class="hover:text-bpf-gold transition-colors underline decoration-white/30 underline-offset-4" data-i18n="footer_privacy">Политика конфиденциальности</button>
         </div>
@@ -628,7 +625,7 @@
     <script>
         const translations = {
             ru: {
-                "nav_title": "ФЕДЕРАЦИЯ ПАНКРАТИОНА РБ", "badge_official": "Официальная организация",
+                "nav_title": "<span class='block text-white'>МСОО «Белорусская федерация армейского рукопашного боя</span><span class='block text-bpf-gold'>и современного панкратиона»</span>", "badge_official": "Официальная организация",
                 "hero_title": "Вся мощь <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>древних традиций</span>",
                 "hero_desc": "Возрождая античные традиции. Воспитывая современных чемпионов. Универсальная бойцовская дисциплина, объединяющая ударную технику и борьбу.",
                 "action_title": "Готов к испытаниям?", "action_subtitle": "Присоединяйся к сильнейшим или изучи правила древнего спорта.",
@@ -651,17 +648,17 @@
                 "lead6_name": "Максименко<br>Александр Николаевич", "lead6_role": "Член республиканского президиума",
                 "lead7_name": "Андреев<br>Сергей Анатольевич", "lead7_role": "Председатель ревизионной комиссии",
                 "partners_title": "Официальные партнеры", "contact_title": "Медиа ресурсы",
-                "footer_copy": "© 2026 Белорусская Федерация Панкратиона. Все права защищены.", "footer_privacy": "Политика конфиденциальности",
+                "footer_copy": "© 2026 МСОО «БЕЛОРУССКАЯ ФЕДЕРАЦИЯ АРМЕЙСКОГО РУКОПАШНОГО БОЯ И СОВРЕМЕННОГО ПАНКРАТИОНА». Все права защищены.", "footer_privacy": "Политика конфиденциальности",
                 "modal_join_title": "Заявка на вступление", "modal_join_desc": "Заполните форму ниже, и мы свяжемся с вами.",
                 "form_name": "ФИО", "form_name_ph": "Иванов Иван Иванович", "form_gender": "Пол", "form_gender_m": "Мужской", "form_gender_f": "Женский",
                 "form_age": "Возраст", "form_weight": "Вес (кг)", "form_phone": "Телефон", "form_agree": "Я согласен на обработку персональных данных согласно", "form_submit": "Отправить заявку",
                 "modal_rules_title": "Детальные правила Панкратиона",
                 "modal_rules_text": "<p><strong>1. Дисциплины (Разделы):</strong><br>Соревнования по панкратиону (UWW) проводятся в двух дисциплинах:<br>- <em>Традиционный</em> — без ударов руками в голову. Разрешены удары ногами в голову и по корпусу.<br>- <em>Элитный</em> — полноконтактная версия, разрешающая удары руками и ногами в голову.</p><p><strong>2. Экипировка:</strong><br>- Шингарты (от 4 унций), позволяющие выполнять захваты.<br>- Рашгард (красного/синего цвета) и борцовские шорты.<br>- Защитная капа и паховый бандаж обязательны. Защита голени/шлем в зависимости от возраста.</p><p><strong>3. Начисление баллов:</strong><br>- <strong>1 балл:</strong> Удар рукой в корпус. Перевод в партер без отрыва от ковра.<br>- <strong>2 балла:</strong> Удар ногой в корпус. Бросок с отрывом.<br>- <strong>3 балла:</strong> Удар ногой в голову. Высокоамплитудный бросок.</p><p><strong>4. Досрочная победа:</strong><br>Поединок может быть остановлен при нокауте (TKO), сдаче (болевой/удушающий) или явном техническом превосходстве (более 10 баллов разницы).</p><p><strong>5. Фолы:</strong><br>Запрещены удары в пах, затылок, позвоночник, колени. Запрещены тычки в глаза, кусание и удары коленями в голову в партере.</p>",
                 "privacy_title": "Политика обработки данных",
-                "privacy_text": "<p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p><p><strong>1. Цели обработки:</strong> Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований и связи с заявителем.</p><p><strong>2. Объем обрабатываемых данных:</strong> Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно.</p><p><strong>3. Права субъекта данных:</strong> В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование удаления персональных данных.</p>"
+                "privacy_text": "<p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p><p><strong>Оператор персональных данных:</strong> МСОО «БЕЛОРУССКАЯ ФЕДЕРАЦИЯ АРМЕЙСКОГО РУКОПАШНОГО БОЯ И СОВРЕМЕННОГО ПАНКРАТИОНА», УНП 805003553, 220056, г. Минск, пр-т Независимости, д. 196, комн. 18.</p><p><strong>1. Цели обработки:</strong> Данные собираются исключительно в целях регистрации спортсменов в Федерации, организации соревнований и связи с заявителем.</p><p><strong>2. Объем обрабатываемых данных:</strong> Мы обрабатываем: ФИО, пол, возраст, вес, номер телефона. Данные предоставляются пользователем добровольно.</p><p><strong>3. Права субъекта данных:</strong> В соответствии со ст. 10-14 Закона № 99-З, вы имеете право: на отзыв согласия; на получение информации об обработке; на требование удаления персональных данных.</p>"
             },
             en: {
-                "nav_title": "PANKRATION FEDERATION BY", "badge_official": "Official Organization",
+                "nav_title": "<span class='block text-white'>Belarusian Federation of Army Hand-to-Hand Combat</span><span class='block text-bpf-gold'>and Modern Pankration</span>", "badge_official": "Official Organization",
                 "hero_title": "The Power of <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-bpf-gold to-yellow-200'>Ancient Traditions</span>",
                 "hero_desc": "Reviving ancient traditions. Raising modern champions. A universal fighting discipline combining striking and wrestling.",
                 "action_title": "Ready for the challenge?", "action_subtitle": "Join the strongest or learn the rules of the ancient sport.",
@@ -684,14 +681,14 @@
                 "lead6_name": "Maksimenko<br>Alexander Nikolaevich", "lead6_role": "Member of the Republican Presidium",
                 "lead7_name": "Andreev<br>Sergey Anatolyevich", "lead7_role": "Chairman of the Audit Commission",
                 "partners_title": "Official Partners", "contact_title": "Media Resources",
-                "footer_copy": "© 2026 Belarusian Pankration Federation. All rights reserved.", "footer_privacy": "Privacy Policy",
+                "footer_copy": "© 2026 Belarusian Federation of Army Hand-to-Hand Combat and Modern Pankration. All rights reserved.", "footer_privacy": "Privacy Policy",
                 "modal_join_title": "Membership Application", "modal_join_desc": "Fill out the form below and we will contact you.",
                 "form_name": "Full Name", "form_name_ph": "John Doe", "form_gender": "Gender", "form_gender_m": "Male", "form_gender_f": "Female",
                 "form_age": "Age", "form_weight": "Weight (kg)", "form_phone": "Phone", "form_agree": "I agree to the processing of personal data according to the", "form_submit": "Submit Application",
                 "modal_rules_title": "Detailed Pankration Rules",
                 "modal_rules_text": "<p><strong>1. Disciplines:</strong><br>Pankration competitions (UWW) are held in two disciplines:<br>- <em>Traditional</em> — no punches to the head. Kicks to the head and all strikes to the body are allowed.<br>- <em>Elite</em> — full-contact version, allowing punches and kicks to the head.</p><p><strong>2. Equipment:</strong><br>- Gloves (min 4 oz) allowing for grappling.<br>- Rashguard (red/blue) and wrestling shorts.<br>- Mouthguard and groin protector are mandatory. Shin guards/headgear depending on age.</p><p><strong>3. Scoring:</strong><br>- <strong>1 point:</strong> Punch to the body. Takedown without lifting.<br>- <strong>2 points:</strong> Kick to the body. Throw lifting the opponent.<br>- <strong>3 points:</strong> Kick to the head. High-amplitude throw.</p><p><strong>4. Early Victory:</strong><br>A bout can be stopped via KO (TKO), submission (joint lock/choke), or clear technical superiority (over 10 points diff).</p><p><strong>5. Fouls:</strong><br>Strikes to the groin, back of the head, spine, and knees are prohibited. Eye pokes, biting, and knees to the head on the ground are forbidden.</p>",
                 "privacy_title": "Privacy Policy",
-                "privacy_text": "<p>This Policy is developed in accordance with the Law of the Republic of Belarus dated 07.05.2021 No. 99-Z 'On Personal Data Protection'.</p><p><strong>1. Purposes:</strong> Data is collected solely for registering athletes, organizing competitions, and communication.</p><p><strong>2. Scope:</strong> We process: Full Name, gender, age, weight, phone number. Provided voluntarily.</p><p><strong>3. Rights:</strong> In accordance with Art. 10-14 of Law No. 99-Z, you have the right to: withdraw consent; receive processing information; demand deletion.</p>"
+                "privacy_text": "<p>This Policy is developed in accordance with the Law of the Republic of Belarus dated 07.05.2021 No. 99-Z 'On Personal Data Protection'.</p><p><strong>Data controller:</strong> Belarusian Federation of Army Hand-to-Hand Combat and Modern Pankration, payer ID 805003553, 196 Nezavisimosti Ave., room 18, Minsk 220056, Belarus.</p><p><strong>1. Purposes:</strong> Data is collected solely for registering athletes, organizing competitions, and communication.</p><p><strong>2. Scope:</strong> We process: Full Name, gender, age, weight, phone number. Provided voluntarily.</p><p><strong>3. Rights:</strong> In accordance with Art. 10-14 of Law No. 99-Z, you have the right to: withdraw consent; receive processing information; demand deletion.</p>"
             }
         };
 
